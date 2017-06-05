@@ -1,0 +1,893 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法,题解,程序设计实践," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="程序设计实践课程，2016年上学期，期末考试题解。">
+<meta name="keywords" content="算法,题解,程序设计实践">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序设计实践-201601期末题解">
+<meta property="og:url" content="http://ericxie.github.io/2017/06/03/practic_programming_201601_final/index.html">
+<meta property="og:site_name" content="Eric Xie&#39;s Blog">
+<meta property="og:description" content="程序设计实践课程，2016年上学期，期末考试题解。">
+<meta property="og:updated_time" content="2017-06-05T13:29:27.722Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程序设计实践-201601期末题解">
+<meta name="twitter:description" content="程序设计实践课程，2016年上学期，期末考试题解。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ericxie.github.io/2017/06/03/practic_programming_201601_final/"/>
+
+
+
+
+
+  <title>程序设计实践-201601期末题解 | Eric Xie's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eric Xie's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">教书匠，伪码农</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://ericxie.github.io/2017/06/03/practic_programming_201601_final/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eric Xie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eric Xie's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">程序设计实践-201601期末题解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T14:15:10+08:00">
+                2017-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/课程/" itemprop="url" rel="index">
+                    <span itemprop="name">课程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/课程/程序设计实践/" itemprop="url" rel="index">
+                    <span itemprop="name">程序设计实践</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  程序设计实践课程，2016年上学期，期末考试题解。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">题目</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1259" target="_blank" rel="external">Alice and Bob</a></td>
+<td style="text-align:left">数学</td>
+<td style="text-align:left">★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1260" target="_blank" rel="external">Completed String</a></td>
+<td style="text-align:left">统计，执行</td>
+<td style="text-align:left">★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1261" target="_blank" rel="external">Duplicate Elements</a></td>
+<td style="text-align:left">查找，执行</td>
+<td style="text-align:left">★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1262" target="_blank" rel="external">Fish</a></td>
+<td style="text-align:left">贪心，优先队列</td>
+<td style="text-align:left">★★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1263" target="_blank" rel="external">Rectangle Union</a></td>
+<td style="text-align:left">几何，容斥</td>
+<td style="text-align:left">★★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1264" target="_blank" rel="external">Unique Characters String</a></td>
+<td style="text-align:left">动态规划</td>
+<td style="text-align:left">★★★★</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a id="more"></a>
+<h2 id="Alice-and-Bob"><a href="#Alice-and-Bob" class="headerlink" title="Alice and Bob"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1259" target="_blank" rel="external">Alice and Bob</a></h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>求n位数中能整除m的数有多少个？</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><script type="math/tex; mode=display">
+\begin{array}
+\,f(x,m)&=&\Big|\{i \mid i \in [0,x],\, m | i\,\}\Big|  \\
+\\
+g(n,m)&=&\bigg\{
+\begin{array}
+\,f(x,m)&\quad n = 1 \\
+f(10^n -1,m) - f(10^{n-1}-1,m) &\quad n \gt 1
+\end{array}
+\end{array}</script><p>$g(n,m)$为题目所求，其中$f(x,m) = \lfloor x/m \rfloor + 1$。</p>
+<h3 id="标程"><a href="#标程" class="headerlink" title="标程"></a>标程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ULL; </div><div class="line"></div><div class="line"><span class="function">ULL <span class="title">get</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> n,ULL m)</span></span>&#123;</div><div class="line">	ULL x = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">unsigned</span> <span class="keyword">int</span> i = <span class="number">0</span>; i&lt;n; i++)</div><div class="line">		x *= <span class="number">10U</span>LL;</div><div class="line">	x--;</div><div class="line">	<span class="keyword">return</span> x/m + <span class="number">1U</span>LL;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> n,k;</div><div class="line">	ULL m;</div><div class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; k;</div><div class="line">	<span class="keyword">while</span>(k--)&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</div><div class="line">		<span class="keyword">if</span>(n&gt;<span class="number">1</span>)</div><div class="line">			<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; get(n,m) - get(n<span class="number">-1</span>,m) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		<span class="keyword">else</span> </div><div class="line">			<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; get(<span class="number">1</span>,m) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Completed-String"><a href="#Completed-String" class="headerlink" title="Completed String"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1260" target="_blank" rel="external">Completed String</a></h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>判断字符串是否含所有英文字母（不区分大小写）</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>直接统计即可，数组或者位运算都可以。</p>
+<h3 id="标程-1"><a href="#标程-1" class="headerlink" title="标程"></a>标程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> &amp;s)</span></span>&#123;</div><div class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> tag = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">unsigned</span> <span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</div><div class="line">		<span class="keyword">if</span>(s[i]&gt;=<span class="string">'a'</span> &amp;&amp; s[i] &lt;= <span class="string">'z'</span>)</div><div class="line">			tag |= (<span class="number">1</span> &lt;&lt; (s[i] - <span class="string">'a'</span>));</div><div class="line">		<span class="keyword">else</span> </div><div class="line">			tag |= (<span class="number">1</span> &lt;&lt; (s[i] - <span class="string">'A'</span>));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> tag == <span class="number">0x3ffffff</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">std</span>::<span class="built_in">string</span> s;</div><div class="line">	<span class="keyword">while</span>(<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; s)&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; (check(s)?<span class="string">"Yes"</span>:<span class="string">"No"</span>) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Duplicate-Elements"><a href="#Duplicate-Elements" class="headerlink" title="Duplicate Elements"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1261" target="_blank" rel="external">Duplicate Elements</a></h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>给一个数字序列，求去重之后的序列（要保持原序列的相对顺序）</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>每得到一个数，查之前是否出现过，出现过就丢弃，没出现过就按顺序存下来。查找可以用set，hash，二分等。</p>
+<h3 id="标程-2"><a href="#标程-2" class="headerlink" title="标程"></a>标程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10011</span>;</div><div class="line"><span class="keyword">int</span> a[N];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> k,n,i,t,m;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k);</div><div class="line">	<span class="keyword">while</span>(k--)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">		<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>,m=<span class="number">0</span>;i&lt;n;i++) &#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</div><div class="line">			<span class="keyword">if</span>(s.insert(t).second)</div><div class="line">				a[m++] = t;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m<span class="number">-1</span>;i++)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d "</span>,a[i]);</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a[m<span class="number">-1</span>]);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Fish"><a href="#Fish" class="headerlink" title="Fish"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1262" target="_blank" rel="external">Fish</a></h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>题目来源于 <a href="http://poj.org/" target="_blank" rel="external">POJ 1042 Go Fish</a>, 简化了题目，只是要求贪心的部分。<br><br>在$n$个池塘钓鱼，每个池塘单位时间能钓$a_i$条鱼，池塘每钓1次，下次钓鱼的数目会减少$b_i$，最多可以钓多少条鱼？</p>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>贪心是很明显的，每次都取鱼数最多的池塘钓就可以了。<br>因为池塘鱼数是动态的，所以利用优先队列维护一下即可。<br>另外，如果发现队头元素$a_i = 0$或者$b_i = 0$都可以立刻得到最后结果。</p>
+<h3 id="标程-3"><a href="#标程-3" class="headerlink" title="标程"></a>标程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> ca,n,m,a,b,i,s;</div><div class="line">	<span class="built_in">std</span>::pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; t;</div><div class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; ca;</div><div class="line">	<span class="keyword">while</span>(ca--)&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</div><div class="line">		<span class="built_in">std</span>::priority_queue&lt;<span class="built_in">std</span>::pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; &gt; pool;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">			<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</div><div class="line">			pool.push(<span class="built_in">std</span>::make_pair(a,-b));</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>,s=<span class="number">0</span>;i&lt;m&amp;&amp;!pool.empty();i++)&#123;</div><div class="line">			t = pool.top();</div><div class="line">			<span class="keyword">if</span>(t.first == <span class="number">0</span>) <span class="keyword">break</span>;</div><div class="line">			pool.pop();</div><div class="line">			<span class="keyword">if</span>(t.second == <span class="number">0</span>)&#123;</div><div class="line">				s += (m-i)*t.first;			</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				s += t.first;</div><div class="line">				t.first += t.second;</div><div class="line">				<span class="keyword">if</span>(t.first &gt; <span class="number">0</span>) </div><div class="line">					pool.push(t); </div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Rectangle-Union"><a href="#Rectangle-Union" class="headerlink" title="Rectangle Union"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1263" target="_blank" rel="external">Rectangle Union</a></h2><h3 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h3><p>求两个平行于坐标轴的矩形面面积并。</p>
+<h3 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h3><script type="math/tex; mode=display">
+S_{A \cup B} = S_A + S_B - S_{A \cap B}</script><p>由于矩形是平行于坐标轴的，所以矩形的交可以分别投影到$X$和$Y$轴，两个坐标轴上投影区间交的乘积即为矩形面积交。</p>
+<h3 id="标程-4"><a href="#标程-4" class="headerlink" title="标程"></a>标程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rect</span>&#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="keyword">int</span> x1,y1,x2,y2;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">area</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> (x2-x1)*(y2 -y1);</div><div class="line">	&#125;</div><div class="line">	Rect(<span class="keyword">int</span> x1,<span class="keyword">int</span> y1,<span class="keyword">int</span> x2,<span class="keyword">int</span> y2)&#123;</div><div class="line">		<span class="keyword">if</span>(x1 &lt; x2) </div><div class="line">			<span class="keyword">this</span>-&gt;x1 = x1,<span class="keyword">this</span>-&gt;x2 = x2;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="keyword">this</span>-&gt;x2 = x1,<span class="keyword">this</span>-&gt;x1 = x2;</div><div class="line">		<span class="keyword">if</span>(y1 &lt; y2) </div><div class="line">			<span class="keyword">this</span>-&gt;y1 = y1,<span class="keyword">this</span>-&gt;y2 = y2;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="keyword">this</span>-&gt;y2 = y1,<span class="keyword">this</span>-&gt;y1 = y2;</div><div class="line">	&#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">overlap</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> L1,<span class="keyword">const</span> <span class="keyword">int</span> R1,<span class="keyword">const</span> <span class="keyword">int</span> L2,<span class="keyword">const</span> <span class="keyword">int</span> R2)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> L,R;</div><div class="line">	L = R = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span>(L1 &lt;= L2 &amp;&amp; L2 &lt;= R1)&#123;</div><div class="line">		L = L2;</div><div class="line">		<span class="keyword">if</span>( R2 &lt; R1) </div><div class="line">			R = R2;</div><div class="line">		<span class="keyword">else</span> </div><div class="line">			R = R1;</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span>(L2 &lt;= L1 &amp;&amp; L1 &lt;= R2) &#123;</div><div class="line">		L = L1;</div><div class="line">		<span class="keyword">if</span>( R1 &lt; R2)</div><div class="line">			R = R1;</div><div class="line">		<span class="keyword">else</span> </div><div class="line">			R = R2;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> R - L;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">area_join</span><span class="params">(<span class="keyword">const</span> Rect &amp;a,<span class="keyword">const</span> Rect &amp;b)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> x,y;</div><div class="line">	x = overlap(a.x1,a.x2,b.x1,b.x2);</div><div class="line">	y = overlap(a.y1,a.y2,b.y1,b.y2);</div><div class="line">	<span class="comment">//cout &lt;&lt; "overlap:" &lt;&lt; x &lt;&lt; ' ' &lt;&lt; y &lt;&lt; endl;</span></div><div class="line">	<span class="keyword">return</span> x*y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">area_union</span><span class="params">(Rect &amp;a,Rect &amp;b)</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> a.area() + b.area() - area_join(a,b);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> x1,y1,x2,y2;</div><div class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2)&#123;</div><div class="line">		<span class="comment">//assert(x1&gt;0 &amp;&amp; x2&gt;0 &amp;&amp; y1&gt;0 &amp;&amp; y2&gt;0);</span></div><div class="line">		<span class="function">Rect <span class="title">a</span><span class="params">(x1,y1,x2,y2)</span></span>;</div><div class="line">		<span class="built_in">cin</span> &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;</div><div class="line">		<span class="comment">//assert(x1&gt;0 &amp;&amp; x2&gt;0 &amp;&amp; y1&gt;0 &amp;&amp; y2&gt;0);</span></div><div class="line">		<span class="function">Rect <span class="title">b</span><span class="params">(x1,y1,x2,y2)</span></span>;</div><div class="line">		<span class="built_in">cout</span> &lt;&lt; area_union(a,b) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Unique-Characters-String"><a href="#Unique-Characters-String" class="headerlink" title="Unique Characters String"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1264" target="_blank" rel="external">Unique Characters String</a></h2><h3 id="题意-5"><a href="#题意-5" class="headerlink" title="题意"></a>题意</h3><p>求一个字符串中不重复字符最长的子串。</p>
+<h3 id="思路-5"><a href="#思路-5" class="headerlink" title="思路"></a>思路</h3><p>$dp[i]$ 表示以字符i为后缀的不重复字符子串的最大长度。</p>
+<script type="math/tex; mode=display">
+dp[i] = min\Big\{ \begin{array}dp[i-1]+1 \\ i-k \mid k \lt i , s[i] = s[k] \end{array}</script><p>所以记录下每个字符最后出现的位置，然后动态规划，$max\{dp[i] \mid i = 1,2,\ldots,n\}$即为不重复字符子串的最大长度。<br>然后再扫描$dp[i]$，求得所有的不重复字符最长的子串。</p>
+<h3 id="标程-5"><a href="#标程-5" class="headerlink" title="标程"></a>标程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> N = <span class="number">10011</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;	   </div><div class="line">	<span class="keyword">char</span> str[N]=<span class="string">""</span>;</div><div class="line">	<span class="keyword">int</span> last[<span class="number">26</span>],left[N],i,len,j,ans;</div><div class="line"></div><div class="line">	<span class="keyword">while</span>(gets(str+<span class="number">1</span>))&#123;</div><div class="line">		<span class="built_in">memset</span>(last,<span class="number">0</span>,<span class="keyword">sizeof</span>(last));</div><div class="line">		<span class="built_in">memset</span>(left,<span class="number">0</span>,<span class="keyword">sizeof</span>(left));</div><div class="line">		ans = <span class="number">0</span>;</div><div class="line">		</div><div class="line">		len = <span class="built_in">strlen</span>(str+<span class="number">1</span>);</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=len;i++)&#123;</div><div class="line">			j = last[str[i] - <span class="string">'a'</span>];			</div><div class="line">			left[i] = i - j;</div><div class="line">			<span class="keyword">if</span>(left[i] &gt; left[i<span class="number">-1</span>] + <span class="number">1</span>) left[i] = left[i<span class="number">-1</span>] + <span class="number">1</span>; </div><div class="line">			<span class="keyword">if</span>(left[i] &gt; ans ) </div><div class="line">				ans = left[i];</div><div class="line">			last[str[i] - <span class="string">'a'</span>] = i;			</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; ss;</div><div class="line">		<span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt;::iterator is;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=len;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(left[i] == ans)&#123;</div><div class="line">				<span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(str+i-ans+<span class="number">1</span>,str+i+<span class="number">1</span>)</span></span>;</div><div class="line">				ss.insert(s);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">		<span class="keyword">for</span>(is = ss.begin(); is != ss.end(); is++)</div><div class="line">			<span class="built_in">cout</span> &lt;&lt; *is &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="Eric Xie WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Eric Xie Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Eric Xie
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://ericxie.github.io/2017/06/03/practic_programming_201601_final/" title="程序设计实践-201601期末题解">http://ericxie.github.io/2017/06/03/practic_programming_201601_final/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/题解/" rel="tag"># 题解</a>
+          
+            <a href="/tags/程序设计实践/" rel="tag"># 程序设计实践</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Eric Xie" />
+          <p class="site-author-name" itemprop="name">Eric Xie</p>
+           
+              <p class="site-description motion-element" itemprop="description">ericxie's blog</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ericxie" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1452537265/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/xie-yong-49" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Alice-and-Bob"><span class="nav-number">1.</span> <span class="nav-text">Alice and Bob</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意"><span class="nav-number">1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标程"><span class="nav-number">1.3.</span> <span class="nav-text">标程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Completed-String"><span class="nav-number">2.</span> <span class="nav-text">Completed String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-1"><span class="nav-number">2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-1"><span class="nav-number">2.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标程-1"><span class="nav-number">2.3.</span> <span class="nav-text">标程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Duplicate-Elements"><span class="nav-number">3.</span> <span class="nav-text">Duplicate Elements</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-2"><span class="nav-number">3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-2"><span class="nav-number">3.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标程-2"><span class="nav-number">3.3.</span> <span class="nav-text">标程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fish"><span class="nav-number">4.</span> <span class="nav-text">Fish</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-3"><span class="nav-number">4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-3"><span class="nav-number">4.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标程-3"><span class="nav-number">4.3.</span> <span class="nav-text">标程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rectangle-Union"><span class="nav-number">5.</span> <span class="nav-text">Rectangle Union</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-4"><span class="nav-number">5.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-4"><span class="nav-number">5.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标程-4"><span class="nav-number">5.3.</span> <span class="nav-text">标程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unique-Characters-String"><span class="nav-number">6.</span> <span class="nav-text">Unique Characters String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-5"><span class="nav-number">6.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-5"><span class="nav-number">6.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标程-5"><span class="nav-number">6.3.</span> <span class="nav-text">标程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eric Xie</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

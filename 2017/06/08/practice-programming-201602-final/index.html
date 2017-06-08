@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://ericxie.github.io/2017/06/08/practice-programming-201602-final/index.html">
 <meta property="og:site_name" content="Eric Xie&#39;s Blog">
 <meta property="og:description" content="程序设计实践课程，2016年下学期，期末考试题解。">
-<meta property="og:updated_time" content="2017-06-08T08:17:47.797Z">
+<meta property="og:updated_time" content="2017-06-08T08:20:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="程序设计实践_201602期末">
 <meta name="twitter:description" content="程序设计实践课程，2016年下学期，期末考试题解。">
@@ -396,7 +396,7 @@
 <tr>
 <td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1266" target="_blank" rel="external">RGB</a></td>
 <td style="text-align:left">数学</td>
-<td style="text-align:left">★</td>
+<td style="text-align:left">★★</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1267" target="_blank" rel="external">Matrix</a></td>
@@ -451,7 +451,7 @@
 </tbody>
 </table>
 </div>
-<p>所以可以递推出页码位数下最多的页码数量，然后根据$n$的值，找出页码数量比n大的最小页码位数i。<br>所以结果就是$\underbrace{99\cdots9}_{i} + (n - P_{i-1}) / i$ </p>
+<p>所以可以递推出页码位数下最多的页码数量，然后根据$n$的值，找出页码数量比n大的最小页码位数i。<br>所以结果就是$\underbrace{99\cdots9}_{i-1} + (n - P_{i-1}) / i$ </p>
 <h3 id="标程"><a href="#标程" class="headerlink" title="标程"></a>标程</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> T,n,a[<span class="number">9</span>]=&#123;<span class="number">0</span>&#125;,i,k;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>,n=<span class="number">1</span>;i&lt;<span class="number">9</span>;i++,n*=<span class="number">10</span>) a[i] = a[i<span class="number">-1</span>] + i*(<span class="number">10</span>*n-n);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">	<span class="keyword">while</span>(T--)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">8</span>,k=<span class="number">99999999</span>;i&gt;=<span class="number">0</span>&amp;&amp;a[i]&gt;=n;i--,k/=<span class="number">10</span>);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,k+(n-a[i])/(i+<span class="number">1</span>));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1266" target="_blank" rel="external">RGB</a></h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>红绿蓝三色球排成一行，一次可以任意调换两个球的位置，求把所有球排列成红绿蓝三种单色区间需要交换的最少次数。</p>
 <h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>与颜色区间不同颜色的球才需要调换。<br>如果相对颜色区间存在相对颜色的球，那就先对换。<br>最后剩下的肯定是 红区绿球，绿区蓝球，蓝区红球 或者 红区蓝球，绿区红球，蓝区绿球 这两种。这是一个轮换，两次交换就可以完成。<br>假设红区绿球，蓝球分别为rg，rb；绿区红球，蓝球分别为gr，gb； 蓝区红球，绿球分别为br,bg;<br>那么<script type="math/tex">答案=min(rg,gr)+min(rb,br)+min(gb,bg)+ 2*|rg-gr|</script></p>

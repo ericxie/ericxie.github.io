@@ -370,18 +370,14 @@
 
       
         
-          
-            <p>最近一直在捣鼓自己的Blog，最后选定了Hexo，配置nexT主题，搞定了mathjax，配置了赞赏和JiaThis分享，但是评论一直没搞好。<br>一开始，看了一下，准备使用<code>友言</code>，注册了但是发现配置好像没生效；<br>准备注册<code>畅言</code>，发现要备案；<br>又折腾了一下韩语，注册了<code>livere</code>，配置倒是简单，也支持很多种不同的登录方式，可以风格和主题实在不符，<code>livere</code>很像是娱乐版乱入科技版。<br>最后发现了<code>Gitment</code>，发现风格很符合，又支持markdown和代码高亮，准备下手。</p>
-<p>先看了官网的配置介绍，但是因为没有说怎么加入hexo的主题，只是直接加网页，自己对主题的配置也不熟悉，就到处找资料和看主题相关文件。最后找到了<a href="https://segmentfault.com/a/1190000009664550" target="_blank" rel="external">集成Gitment评论系统</a>。虽然，不是直接加入nexT主题的，但是看上去差不多，就直接按着这篇帖子上说的，在<code>comment.swig</code>中添加了下面的配置，并把主题的_config.yml中加入了<code>gitment: true</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;% elseif theme.gitment %&#125;</div><div class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://imsun.github.io/gitment/style/default.css"</span>&gt;</div><div class="line">&lt;script src="https://imsun.github.io/gitment/dist/gitment.browser.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  <span class="keyword">var</span> gitment = <span class="keyword">new</span> Gitment(&#123;</div><div class="line">    <span class="comment">// 根据文章标题设置唯一评论id</span></div><div class="line">    id: <span class="string">'&#123;&#123;page.articleID&#125;&#125;'</span>,</div><div class="line">    <span class="attr">owner</span>: <span class="string">'yourname'</span>,</div><div class="line">    <span class="attr">repo</span>: <span class="string">'your blog github repo'</span>,</div><div class="line">    <span class="attr">oauth</span>: &#123;</div><div class="line">      <span class="attr">client_id</span>: <span class="string">'your clientid'</span>,</div><div class="line">      <span class="attr">client_secret</span>: <span class="string">'your clientsecret'</span>,</div><div class="line">    &#125;,</div><div class="line">  &#125;)</div><div class="line">  gitment.render(<span class="string">'comments'</span>)</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
-<p>把<code>owner</code>设成github的ID，repo设成了blog的网址，以及按照官网配置得到的client_id和client_secret。<br>结果….comments并没有出现初始化按钮，而是<b>Error: Not Found</b>，Issue Page也显示undefined。<br>开始以为是没有登录github，登录以后发现问题依旧。遂去官网文章下提问题，很快得到网友的一些提示（非常感谢给予回复的两位网友），但是好像都不对路。</p>
-<blockquote>
-<p>你查看一下你页面上那个articleID是否拿到</p>
-</blockquote>
-<p>经网友提示，我突然想到我的文章<code>front matter</code>中的确没有写这个变量，加了，可问题依旧，冥思苦想不得要领。。。<br>最后，没法，跑去一个已经集成了gitment的Blog看源码，发现自己配置的时候repo变量自作聪明的加了<code>https://</code>头，去掉之后，重新部署，终于好了！！！</p>
-<p>希望这篇流水账能对遇到这个坑的同学有所帮助。</p>
-<p>以上。</p>
-
-          
+          <p>最近一直在捣鼓自己的Blog，最后选定了Hexo，配置nexT主题，搞定了mathjax，配置了赞赏和JiaThis分享，但是评论一直没搞好。<br>一开始，看了一下，准备使用<code>友言</code>，注册了但是发现配置好像没生效；<br>准备注册<code>畅言</code>，发现要备案；<br>又折腾了一下韩语，注册了<code>livere</code>，配置倒是简单，也支持很多种不同的登录方式，可以风格和主题实在不符，<code>livere</code>很像是娱乐版乱入科技版。<br>最后发现了<code>Gitment</code>，发现风格很符合，又支持markdown和代码高亮，准备下手。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/12/hexo-gitment-md/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

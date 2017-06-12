@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hexo,gitment," />
 
 
 
@@ -93,16 +93,17 @@
 
 
 
-<meta name="description" content="Eric Xie，湘潭大学信息工程学院老师，程序设计竞赛集训队教练。     邮箱：ericxie(AT)sina.com   微博：ericxie">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://ericxie.github.io/about/index.html">
+<meta name="description" content="在hexo中使用Gitment实现评论，next主题">
+<meta name="keywords" content="hexo,gitment">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo中添加Gitment">
+<meta property="og:url" content="http://ericxie.github.io/2017/06/12/hexo-gitment-md/index.html">
 <meta property="og:site_name" content="Eric Xie&#39;s Blog">
-<meta property="og:description" content="Eric Xie，湘潭大学信息工程学院老师，程序设计竞赛集训队教练。     邮箱：ericxie(AT)sina.com   微博：ericxie">
-<meta property="og:updated_time" content="2017-06-03T14:42:44.477Z">
+<meta property="og:description" content="在hexo中使用Gitment实现评论，next主题">
+<meta property="og:updated_time" content="2017-06-12T14:41:33.931Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="Eric Xie，湘潭大学信息工程学院老师，程序设计竞赛集训队教练。     邮箱：ericxie(AT)sina.com   微博：ericxie">
+<meta name="twitter:title" content="hexo中添加Gitment">
+<meta name="twitter:description" content="在hexo中使用Gitment实现评论，next主题">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://ericxie.github.io/about/"/>
+  <link rel="canonical" href="http://ericxie.github.io/2017/06/12/hexo-gitment-md/"/>
 
 
 
 
 
-  <title>关于 | Eric Xie's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>hexo中添加Gitment | Eric Xie's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,26 +268,241 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">关于</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://ericxie.github.io/2017/06/12/hexo-gitment-md/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eric Xie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eric Xie's Blog">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hexo中添加Gitment</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T22:13:24+08:00">
+                2017-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  在hexo中使用Gitment实现评论，next主题
+              </div>
+          
+
+        </div>
+      </header>
     
+
+    <div class="post-body" itemprop="articleBody">
+
       
-Eric Xie，湘潭大学信息工程学院老师，程序设计竞赛集训队教练。 
+      
 
-<ul>
- <li>邮箱：ericxie(AT)sina.com</li>
+      
+        <p>最近一直在捣鼓自己的Blog，最后选定了Hexo，配置nexT主题，搞定了mathjax，配置了赞赏和JiaThis分享，但是评论一直没搞好。<br>一开始，看了一下，准备使用<code>友言</code>，注册了但是发现配置好像没生效；<br>准备注册<code>畅言</code>，发现要备案；<br>又折腾了一下韩语，注册了<code>livere</code>，配置倒是简单，也支持很多种不同的登录方式，可以风格和主题实在不符，<code>livere</code>很像是娱乐版乱入科技版。<br>最后发现了<code>Gitment</code>，发现风格很符合，又支持markdown和代码高亮，准备下手。</p>
+<p>先看了官网的配置介绍，但是因为没有说怎么加入hexo的主题，只是直接加网页，自己对主题的配置也不熟悉，就到处找资料和看主题相关文件。最后找到了<a href="https://segmentfault.com/a/1190000009664550" target="_blank" rel="external">集成Gitment评论系统</a>。虽然，不是直接加入nexT主题的，但是看上去差不多，就直接按着这篇帖子上说的，在<code>comment.swig</code>中添加了下面的配置，并把主题的_config.yml中加入了<code>gitment: true</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;% elseif theme.gitment %&#125;</div><div class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://imsun.github.io/gitment/style/default.css"</span>&gt;</div><div class="line">&lt;script src="https://imsun.github.io/gitment/dist/gitment.browser.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  <span class="keyword">var</span> gitment = <span class="keyword">new</span> Gitment(&#123;</div><div class="line">    <span class="comment">// 根据文章标题设置唯一评论id</span></div><div class="line">    id: <span class="string">'&#123;&#123;page.articleID&#125;&#125;'</span>,</div><div class="line">    <span class="attr">owner</span>: <span class="string">'yourname'</span>,</div><div class="line">    <span class="attr">repo</span>: <span class="string">'your blog github repo'</span>,</div><div class="line">    <span class="attr">oauth</span>: &#123;</div><div class="line">      <span class="attr">client_id</span>: <span class="string">'your clientid'</span>,</div><div class="line">      <span class="attr">client_secret</span>: <span class="string">'your clientsecret'</span>,</div><div class="line">    &#125;,</div><div class="line">  &#125;)</div><div class="line">  gitment.render(<span class="string">'comments'</span>)</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
+<p>把<code>owner</code>设成github的ID，repo设成了blog的网址，以及按照官网配置得到的client_id和client_secret。<br>结果….comments并没有出现初始化按钮，而是<b>Error: Not Found</b>，Issue Page也显示undefined。<br>开始以为是没有登录github，登录以后发现问题依旧。遂去官网文章下提问题，很快得到网友的一些提示（非常感谢给予回复的两位网友），但是好像都不对路。</p>
+<blockquote>
+<p>你查看一下你页面上那个articleID是否拿到</p>
+</blockquote>
+<p>经网友提示，我突然想到我的文章<code>front matter</code>中的确没有写这个变量，加了，可问题依旧，冥思苦想不得要领。。。<br>最后，没法，跑去一个已经集成了gitment的Blog看源码，发现自己配置的时候repo变量自作聪明的加了<code>https://</code>头，去掉之后，重新部署，终于好了！！！</p>
+<p>希望这篇流水账能对遇到这个坑的同学有所帮助。</p>
+<p>以上。</p>
 
- <li>微博：<a href="http://weibo.com/u/1452537265" target="_blank" rel="external">ericxie</a></li>
-</ul>
+      
+    </div>
 
-    
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="Eric Xie WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Eric Xie Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Eric Xie
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://ericxie.github.io/2017/06/12/hexo-gitment-md/" title="hexo中添加Gitment">http://ericxie.github.io/2017/06/12/hexo-gitment-md/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/gitment/" rel="tag"># gitment</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/08/practice-programming-201602-final/" rel="next" title="程序设计实践_201602期末">
+                <i class="fa fa-chevron-left"></i> 程序设计实践_201602期末
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
   </div>
 
 
@@ -302,7 +518,7 @@ Eric Xie，湘潭大学信息工程学院老师，程序设计竞赛集训队教
       <script>
         var gitment = new Gitment({
           // 根据文章标题设置唯一评论id
-          id: '',
+          id: 'hexo_gitment',
           owner: 'ericxie',
           repo: 'ericxie.github.io',
           oauth: {
@@ -546,10 +762,10 @@ Eric Xie，湘潭大学信息工程学院老师，程序设计竞赛集训队教
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 

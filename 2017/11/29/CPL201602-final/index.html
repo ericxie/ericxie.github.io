@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://ericxie.github.io/2017/11/29/CPL201602-final/index.html">
 <meta property="og:site_name" content="Eric Xie&#39;s Blog">
 <meta property="og:description" content="C语言程序设计，2016年下学期，期末考试题解。">
-<meta property="og:updated_time" content="2017-11-29T03:07:41.074Z">
+<meta property="og:updated_time" content="2017-11-29T03:12:44.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言程序设计-201602期末题解">
 <meta name="twitter:description" content="C语言程序设计，2016年下学期，期末考试题解。">
@@ -449,7 +449,7 @@
 <li>输出<code>n-i-1</code>个空格</li>
 <li>从’A’开始，输出<code>i+1</code> 个上升字符</li>
 <li>输出字符-=2,输出<code>i</code> 个下降字符</li>
-<li>输出<code>2<em>n-2</em>i-1</code>个空格</li>
+<li>输出<code>2*n-2*i-1</code>个空格</li>
 <li>从’A’开始，输出<code>i+1</code> 个上升字符</li>
 <li>输出字符-=2,输出<code>i</code> 个下降字符</li>
 <li>输出换行</li>
@@ -483,7 +483,7 @@
 \begin{array}
 \,\therefore \quad S_2(n) = \sum_{i=\frac{n-1}{2}}^{n-1} {n-1 \choose i} \\
 \because \quad {n-1 \choose i} = {n-1 \choose n-1-i}\,,\, \sum_{i=0}^{n-1} {n-1 \choose i} = 2^{n-1} \\
-\therefore S_1(n) = 2^{n-2} + \frac{1}{2}{n-1 \choose \frac{n-1}{2}}
+\therefore S_2(n) = 2^{n-2} + \frac{1}{2}{n-1 \choose \frac{n-1}{2}}
 \end{array}</script><p>综上</p>
 <script type="math/tex; mode=display">
 S(n) = \left\{ 

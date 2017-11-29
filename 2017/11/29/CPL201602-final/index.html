@@ -1,0 +1,995 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法,题解,C语言程序设计," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="C语言程序设计，2016年下学期，期末考试题解。">
+<meta name="keywords" content="算法,题解,C语言程序设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言程序设计-201602期末题解">
+<meta property="og:url" content="http://ericxie.github.io/2017/11/29/CPL201602-final/index.html">
+<meta property="og:site_name" content="Eric Xie&#39;s Blog">
+<meta property="og:description" content="C语言程序设计，2016年下学期，期末考试题解。">
+<meta property="og:updated_time" content="2017-11-29T03:02:53.411Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言程序设计-201602期末题解">
+<meta name="twitter:description" content="C语言程序设计，2016年下学期，期末考试题解。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ericxie.github.io/2017/11/29/CPL201602-final/"/>
+
+
+
+
+
+  <title>C语言程序设计-201602期末题解 | Eric Xie's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eric Xie's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">教书匠，伪码农</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://ericxie.github.io/2017/11/29/CPL201602-final/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eric Xie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eric Xie's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C语言程序设计-201602期末题解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T01:05:48+08:00">
+                2017-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/课程/" itemprop="url" rel="index">
+                    <span itemprop="name">课程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/课程/C语言程序设计/" itemprop="url" rel="index">
+                    <span itemprop="name">C语言程序设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  C语言程序设计，2016年下学期，期末考试题解。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">题目</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1276" target="_blank" rel="external">Average</a></td>
+<td style="text-align:left">签到</td>
+<td style="text-align:left">★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1277" target="_blank" rel="external">Tri-triangle</a></td>
+<td style="text-align:left">找规律</td>
+<td style="text-align:left">★★★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1278" target="_blank" rel="external">Arithmetic Sequence</a></td>
+<td style="text-align:left">执行</td>
+<td style="text-align:left">★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1283" target="_blank" rel="external">Dual Prime</a></td>
+<td style="text-align:left">筛法</td>
+<td style="text-align:left">★★★★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1279" target="_blank" rel="external">String Hash</a></td>
+<td style="text-align:left">进制转换</td>
+<td style="text-align:left">★★★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1280" target="_blank" rel="external">Cute String</a></td>
+<td style="text-align:left">统计</td>
+<td style="text-align:left">★★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1281" target="_blank" rel="external">Harmonic Porgression</a></td>
+<td style="text-align:left">辗转相除</td>
+<td style="text-align:left">★★★</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://202.197.224.59/exam/index.php/problem/read/id/1282" target="_blank" rel="external">Good Number</a></td>
+<td style="text-align:left">找规律，递推</td>
+<td style="text-align:left">★★★★</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a id="more"></a>
+<h2 id="Average"><a href="#Average" class="headerlink" title="Average"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1276" target="_blank" rel="external">Average</a></h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>Alice和Bob各出了一部分钱，求平分分摊情况下，谁应该给谁多少钱？</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>签到题，直接做就可以了，无论是判断奇偶分情况处理或者是直接用浮点都可以的。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> T,a,b,c;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">	<span class="keyword">while</span>(T--)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a,&amp;b);</div><div class="line">		<span class="keyword">if</span>(a &gt; b)&#123;</div><div class="line">			c = a - b;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"Bob %d"</span>,c/<span class="number">2</span>);</div><div class="line">			<span class="keyword">if</span>(c&amp;<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">".5"</span>);</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span>(a &lt; b)&#123;</div><div class="line">			c = b - a;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"Alice %d"</span>,c/<span class="number">2</span>);</div><div class="line">			<span class="keyword">if</span>(c&amp;<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">".5"</span>);</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="built_in">puts</span>(<span class="string">"None"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> T,a,b,c;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">	<span class="keyword">while</span>(T--)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a,&amp;b);</div><div class="line">		c = a-b;</div><div class="line">		<span class="keyword">if</span>(c==<span class="number">0</span>) <span class="built_in">puts</span>(<span class="string">"None"</span>);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(c &gt; <span class="number">0</span>)</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"Bob %g\n"</span>,(<span class="keyword">double</span>)c/<span class="number">2</span>);			</div><div class="line">		<span class="keyword">else</span> </div><div class="line">			<span class="built_in">printf</span>(<span class="string">"Alice %g\n"</span>,(<span class="keyword">double</span>)(-c)/<span class="number">2</span>);			</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Tri-triangle"><a href="#Tri-triangle" class="headerlink" title="Tri-triangle"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1277" target="_blank" rel="external">Tri-triangle</a></h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>按要求输出对应的字符图形</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>典型的找规律题，考察观察力和循环的使用。<br><br>常见的做法有两种，一种是传统的按行列分布的规律图形的输出，一种使用二维数组作为缓冲，输出图形。<br><br>第一种做法比较直接，第二种写起来稍微麻烦点，下面我们介绍第一种传统做法。<br><br>明显图形分成两部分，第一部分是一个三角形，第二部分是下面的两个三角形。<br><br>对于第一部分，<code>n = c - ‘A’ + 1</code>表示三角的行数，<code>i</code>从<code>0</code>开始。<br>第<code>i</code>行输出的字符为<br></p>
+<ol>
+<li>输出<code>n-i-1</code>个空格</li>
+<li>从’A’开始，输出<code>i+1</code> 个上升字符</li>
+<li>输出字符-=2,输出<code>i</code> 个下降字符</li>
+<li>输出换行</li>
+</ol>
+<p>对于第一部分，<code>n = c - ‘A’ + 1</code>表示三角的行数，<code>i</code>从<code>0</code>开始。<br>第<code>i</code>行输出的字符为<br></p>
+<ol>
+<li>输出<code>n-i-1</code>个空格</li>
+<li>从’A’开始，输出<code>i+1</code> 个上升字符</li>
+<li>输出字符-=2,输出<code>i</code> 个下降字符</li>
+<li>输出<code>2<em>n-2</em>i-1</code>个空格</li>
+<li>从’A’开始，输出<code>i+1</code> 个上升字符</li>
+<li>输出字符-=2,输出<code>i</code> 个下降字符</li>
+<li>输出换行</li>
+</ol>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">char</span> c[<span class="number">4</span>],t;</div><div class="line">	<span class="keyword">int</span> n,i,j;</div><div class="line">	<span class="keyword">while</span>(gets(c))&#123;</div><div class="line">		n = c[<span class="number">0</span>]-<span class="string">'A'</span> + <span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">			<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">2</span>*n<span class="number">-1</span>-i;j++) <span class="built_in">putchar</span>(<span class="string">' '</span>);</div><div class="line">			<span class="keyword">for</span>(t=<span class="string">'A'</span>,j=<span class="number">0</span>;j&lt;i+<span class="number">1</span>;j++) <span class="built_in">putchar</span>(t++);</div><div class="line">			<span class="keyword">for</span>(t-=<span class="number">2</span>,j=<span class="number">0</span>;j&lt;i;j++) <span class="built_in">putchar</span>(t--);</div><div class="line">			<span class="built_in">putchar</span>(<span class="string">'\n'</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">			<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n<span class="number">-1</span>-i;j++) <span class="built_in">putchar</span>(<span class="string">' '</span>);</div><div class="line">			<span class="keyword">for</span>(t=<span class="string">'A'</span>,j=<span class="number">0</span>;j&lt;i+<span class="number">1</span>;j++) <span class="built_in">putchar</span>(t++);</div><div class="line">			<span class="keyword">for</span>(t-=<span class="number">2</span>,j=<span class="number">0</span>;j&lt;i;j++) <span class="built_in">putchar</span>(t--);</div><div class="line">			<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">2</span>*n<span class="number">-1</span>-i*<span class="number">2</span>;j++) <span class="built_in">putchar</span>(<span class="string">' '</span>);</div><div class="line">			<span class="keyword">for</span>(t=<span class="string">'A'</span>,j=<span class="number">0</span>;j&lt;i+<span class="number">1</span>;j++) <span class="built_in">putchar</span>(t++);</div><div class="line">			<span class="keyword">for</span>(t-=<span class="number">2</span>,j=<span class="number">0</span>;j&lt;i;j++) <span class="built_in">putchar</span>(t--);</div><div class="line">			<span class="built_in">putchar</span>(<span class="string">'\n'</span>);	</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Arithmetic-Sequence"><a href="#Arithmetic-Sequence" class="headerlink" title="Arithmetic Sequence"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1278" target="_blank" rel="external">Arithmetic Sequence</a></h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>验证一个序列是否是等差数列。</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>直接做，注意等差数列的差值可以是负数。</p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> T,n,a,d,b,t,flag;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">	<span class="keyword">while</span>(T--)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">		flag = <span class="number">1</span>;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a,&amp;b);</div><div class="line">		d = b - a;</div><div class="line">		b += d;</div><div class="line">		n -= <span class="number">2</span>;</div><div class="line">		<span class="keyword">while</span>(n--)&#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</div><div class="line">			<span class="keyword">if</span>(b!=t) flag = <span class="number">0</span>;</div><div class="line">			b+=d;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">puts</span>(flag?<span class="string">"Yes"</span>:<span class="string">"No"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Dual-Prime"><a href="#Dual-Prime" class="headerlink" title="Dual Prime"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1279" target="_blank" rel="external">Dual Prime</a></h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>求区间内，等于两个不同素数乘积的合数的个数。</p>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>类似于素数筛法。我们考虑素数筛法时，把原来的标记<code>0</code>表示素数，<code>1</code>表示非素数，改为被素数筛的时候，标记过多少次。<br><br>一个符合条件的合数$n$，会被标记$1$次；(自己想想为什么?)<br><br>但被标记$1$次的还有像$m = p^2q\, \mid \,p,q是素数\,,\,并且q&gt;\sqrt{n} \; or \; q = 1$的数，所以把$p^2$的倍数再标记1次。<br>就能筛出所有的符合条件的数。</p>
+<p>题目时限给的比较松，有其他枚举的做法也可以过。</p>
+<h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000001</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> SQ = <span class="number">1001</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> t[N]=&#123;<span class="number">0</span>&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">sieve</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> i,j,k;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;SQ;i++) <span class="keyword">if</span>(!t[i])&#123;		</div><div class="line">		k = i*i;</div><div class="line">		<span class="keyword">for</span>(j=k;j&lt;N;j+=i)</div><div class="line">			t[j]++;</div><div class="line">		<span class="keyword">for</span>(j=k;j&lt;N;j+=k)</div><div class="line">			t[j]++;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;N;i++)</div><div class="line">		t[i] = t[i<span class="number">-1</span>] + (t[i]==<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> a,b,T;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">	sieve();</div><div class="line">	<span class="keyword">while</span>(T--)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a,&amp;b);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,t[b]-t[a<span class="number">-1</span>]);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="String-Hash"><a href="#String-Hash" class="headerlink" title="String Hash"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1280" target="_blank" rel="external">String Hash</a></h2><h3 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h3><p>把只含小写英文字母的字符串看成首位是1的26进制数，求其对$1,000,000,007$取模的值。</p>
+<h3 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h3><p>进制转换的裸题。注意需要使用64位整数来防止溢出。</p>
+<h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> MOD = <span class="number">1000000007</span>;</div><div class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">gao</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</div><div class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ret = <span class="number">1</span>;</div><div class="line">	<span class="keyword">while</span>(*s)&#123;</div><div class="line">		ret *= <span class="number">26</span>;</div><div class="line">		ret += *s - <span class="string">'a'</span>;</div><div class="line">		ret %= MOD;</div><div class="line">		s++;</div><div class="line">	&#125; </div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">char</span> s[<span class="number">1111</span>];</div><div class="line">	<span class="keyword">while</span>(gets(s))&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,gao(s));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Cute-String"><a href="#Cute-String" class="headerlink" title="Cute String"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1281" target="_blank" rel="external">Cute String</a></h2><h3 id="题意-5"><a href="#题意-5" class="headerlink" title="题意"></a>题意</h3><p>统计单词数和字母出现的种类数是否超过10。</p>
+<h3 id="思路-5"><a href="#思路-5" class="headerlink" title="思路"></a>思路</h3><p>一个计数器统计单词数，根据题目输入，直接统计空格和串结束符；<br><br>再用一个26个的计数器数组来统计对应的字母是否出现，遍历计数器数组计算一共出现了多少个字母。</p>
+<h3 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">char</span> s[<span class="number">222</span>],*p;</div><div class="line">	<span class="keyword">int</span> cc[<span class="number">26</span>],c,sc,i;</div><div class="line">	<span class="keyword">while</span>(gets(s))&#123;</div><div class="line">		<span class="built_in">memset</span>(cc,<span class="number">0</span>,<span class="keyword">sizeof</span>(cc));</div><div class="line">		c = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(p=s;*p;p++)&#123;</div><div class="line">			<span class="keyword">if</span>(*p&gt;=<span class="string">'A'</span>&amp;&amp;*p&lt;=<span class="string">'Z'</span>) cc[*p-<span class="string">'A'</span>] = <span class="number">1</span>;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(*p&gt;=<span class="string">'a'</span>&amp;&amp;*p&lt;=<span class="string">'z'</span>) cc[*p-<span class="string">'a'</span>] = <span class="number">1</span>;</div><div class="line">			<span class="keyword">else</span> c++;</div><div class="line">		&#125;</div><div class="line">		c++;</div><div class="line">		<span class="keyword">for</span>(sc=<span class="number">0</span>,i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++) sc+=cc[i];</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(sc&lt;=<span class="number">10</span> &amp;&amp; c&lt;=<span class="number">10</span>)</div><div class="line">			<span class="built_in">puts</span>(<span class="string">"Yes"</span>);</div><div class="line">		<span class="keyword">else</span> </div><div class="line">			<span class="built_in">puts</span>(<span class="string">"No"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Harmonic-Porgression"><a href="#Harmonic-Porgression" class="headerlink" title="Harmonic Porgression"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1282" target="_blank" rel="external">Harmonic Porgression</a></h2><h3 id="题意-6"><a href="#题意-6" class="headerlink" title="题意"></a>题意</h3><p>求调和级数的一段，使用分数表示结果</p>
+<h3 id="思路-6"><a href="#思路-6" class="headerlink" title="思路"></a>思路</h3><p>直接做即可，相当于每次都是一次分数加，注意使用64位整数防止溢出。</p>
+<h3 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</div><div class="line"></div><div class="line"><span class="function">LL <span class="title">gcd</span><span class="params">(LL x,LL y)</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> y?gcd(y,x%y):x;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// pa/pb += c/d</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fracAdd</span><span class="params">(LL *pa,LL *pb,LL c,LL d)</span></span>&#123;</div><div class="line">	<span class="keyword">long</span> <span class="keyword">long</span> a,b,e;</div><div class="line">	a = *pa * d + c * *pb;</div><div class="line">	b = *pb * d;</div><div class="line">	e = gcd(a,b);</div><div class="line">	*pa = a / e;</div><div class="line">	*pb = b / e;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> T;</div><div class="line">	<span class="keyword">long</span> <span class="keyword">long</span> i,a,b,c,d;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">	<span class="keyword">while</span>(T--)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%I64d %I64d"</span>,&amp;a,&amp;b);</div><div class="line">		c = <span class="number">0</span>;</div><div class="line">		d = <span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(i=a;i&lt;=b;i++)&#123;</div><div class="line">			fracAdd(&amp;c,&amp;d,<span class="number">1</span>,i);</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%I64d/%I64d\n"</span>,c,d);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Good-Number"><a href="#Good-Number" class="headerlink" title="Good Number"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1283" target="_blank" rel="external">Good Number</a></h2><h3 id="题意-7"><a href="#题意-7" class="headerlink" title="题意"></a>题意</h3><p>求$n$位无前导$0$的二进制数中，数码$1$比数码$0$多的数的个数。</p>
+<h3 id="思路-7"><a href="#思路-7" class="headerlink" title="思路"></a>思路</h3><p>如果$n=1$，那么结果为$1$。<br><br>对于$n&gt;1$,如果$n$是偶数，首位必须是$1$，那么余下的$n-1$位的中，只要存在$i \ge \frac{n}{2}$个$1$，那么就是符合条件的数。</p>
+<script type="math/tex; mode=display">
+\begin{array}
+\,\therefore \quad S_1(n) = \sum_{i=\frac{n}{2}}^{n-1} {n-1 \choose i} \\
+\because \quad {n-1 \choose i} = {n-1 \choose n-1-i}\,,\, \sum_{i=0}^{n-1} {n-1 \choose i} = 2^{n-1} \\
+\therefore S_1(n) = 2^{n-2}
+\end{array}</script><p>如果$n$是奇数，首位必须是$1$，那么余下的$n-1$位的中，只要存在$i \ge \frac{n-1}{2}$个$1$，那么就是符合条件的数。</p>
+<script type="math/tex; mode=display">
+\begin{array}
+\,\therefore \quad S_2(n) = \sum_{i=\frac{n-1}{2}}^{n-1} {n-1 \choose i} \\
+\because \quad {n-1 \choose i} = {n-1 \choose n-1-i}\,,\, \sum_{i=0}^{n-1} {n-1 \choose i} = 2^{n-1} \\
+\therefore S_1(n) = 2^{n-2} + \frac{1}{2}{n-1 \choose \frac{n-1}{2}}
+\end{array}</script><p>综上</p>
+<script type="math/tex; mode=display">
+S(n) = \left\{ 
+\begin{array}{ll}
+1&n=1 \\
+2^{n-2}& n \equiv 0 \mod 2 \\
+2^{n-2} + \frac{1}{2}{n-1 \choose \frac{n-1}{2}} & n \equiv 1 \mod 2
+\end{array}
+\right.</script><p>所以，先利用递推求出组合数即可。注意使用64位整数。</p>
+<h3 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 64</span></div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> a[N][N];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> i,j;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++) a[i][<span class="number">0</span>] = a[i][i] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;N;i++)</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;i;j++) </div><div class="line">			a[i][j] = a[i<span class="number">-1</span>][j<span class="number">-1</span>] + a[i<span class="number">-1</span>][j];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n;</div><div class="line">	init();</div><div class="line">	<span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n))&#123;</div><div class="line">		<span class="keyword">if</span>(n==<span class="number">1</span>) <span class="built_in">puts</span>(<span class="string">"1"</span>);</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(n&amp;<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,(<span class="number">1L</span>L&lt;&lt;(n<span class="number">-2</span>))+(a[n<span class="number">-1</span>][(n<span class="number">-1</span>)&gt;&gt;<span class="number">1</span>]&gt;&gt;<span class="number">1</span>));</div><div class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,(<span class="number">1L</span>L&lt;&lt;(n<span class="number">-2</span>)));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="Eric Xie WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Eric Xie Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Eric Xie
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://ericxie.github.io/2017/11/29/CPL201602-final/" title="C语言程序设计-201602期末题解">http://ericxie.github.io/2017/11/29/CPL201602-final/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/题解/" rel="tag"># 题解</a>
+          
+            <a href="/tags/C语言程序设计/" rel="tag"># C语言程序设计</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/14/2017-summer-training/" rel="next" title="2017年赛季训练记录">
+                <i class="fa fa-chevron-left"></i> 2017年赛季训练记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/29/CPL201602-final_171129012052/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          // 根据文章标题设置唯一评论id
+          id: 'CPL_201601_final',
+          owner: 'ericxie',
+          repo: 'ericxie.github.io',
+          oauth: {
+            client_id: 'f319585d3c1b9462feda',
+            client_secret: '4072ac50950bdf43faf69ad34d89a73b77c2fbd4',
+          },
+        })
+        gitment.render('comments')
+      </script>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Eric Xie" />
+          <p class="site-author-name" itemprop="name">Eric Xie</p>
+           
+              <p class="site-description motion-element" itemprop="description">ericxie's blog</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ericxie" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1452537265/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/xie-yong-49" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Average"><span class="nav-number">1.</span> <span class="nav-text">Average</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意"><span class="nav-number">1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tri-triangle"><span class="nav-number">2.</span> <span class="nav-text">Tri-triangle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-1"><span class="nav-number">2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-1"><span class="nav-number">2.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-1"><span class="nav-number">2.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arithmetic-Sequence"><span class="nav-number">3.</span> <span class="nav-text">Arithmetic Sequence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-2"><span class="nav-number">3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-2"><span class="nav-number">3.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-2"><span class="nav-number">3.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dual-Prime"><span class="nav-number">4.</span> <span class="nav-text">Dual Prime</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-3"><span class="nav-number">4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-3"><span class="nav-number">4.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-3"><span class="nav-number">4.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-Hash"><span class="nav-number">5.</span> <span class="nav-text">String Hash</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-4"><span class="nav-number">5.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-4"><span class="nav-number">5.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-4"><span class="nav-number">5.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cute-String"><span class="nav-number">6.</span> <span class="nav-text">Cute String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-5"><span class="nav-number">6.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-5"><span class="nav-number">6.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-5"><span class="nav-number">6.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Harmonic-Porgression"><span class="nav-number">7.</span> <span class="nav-text">Harmonic Porgression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-6"><span class="nav-number">7.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-6"><span class="nav-number">7.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-6"><span class="nav-number">7.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Good-Number"><span class="nav-number">8.</span> <span class="nav-text">Good Number</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-7"><span class="nav-number">8.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-7"><span class="nav-number">8.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-7"><span class="nav-number">8.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eric Xie</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

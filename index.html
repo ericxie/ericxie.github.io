@@ -373,7 +373,7 @@
           
             <p>子集枚举中经常用到的，求按字典序，从n个元素中取k个元素的所有子集序列，其核心就是求比x大的最小的且和x含有同样数目个1的整数。<br>有一个很神奇的位操作可以做到这一点，算法的C语言代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> s,r;</div><div class="line">    s = x &amp; (-x);</div><div class="line">    r = s + x;</div><div class="line">    x = r | (((x ^ r)&gt;&gt;<span class="number">2</span>)/s);</div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>我们分析一下这个算法。</p>
-<p>显然， <code> s  = lowbit(x) </code>，next为所求。</p>
+<p>设next为所求，显然 <code> s  = lowbit(x) </code>。</p>
 <p>然后分情况讨论：</p>
 <ol>
 <li>如果x是$\underbrace{\ldots}_{\text{r}} \,0 \,1 \, \underbrace{0\ldots 0}_{\text{t}}$的形式，<br>那么next应该为 $\underbrace{\ldots}_{\text{r}} \,1 \,0 \,\underbrace{0\ldots 0}_{\text{t}}$，<br>显然，<code> next = x + lowbit(x) </code>。</li>

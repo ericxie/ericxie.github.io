@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://ericxie.github.io/2020/09/12/next-subset/</loc>
+    <lastmod>2020-09-11T17:53:45.539Z</lastmod>
+    <data>
+        <display>
+        <title>比x大的最小的且和x含有同样数目个1的整数</title>
+        <pubTime>2020-09-11T17:47:00.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://ericxie.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ericxie.github.io/2020/08/30/CPL2020-solution/</loc>
-    <lastmod>2020-08-30T14:59:07.159Z</lastmod>
+    <lastmod>2020-08-31T04:35:45.838Z</lastmod>
     <data>
         <display>
         <title>2020年程序设计实践练习题解</title>

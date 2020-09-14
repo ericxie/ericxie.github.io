@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://ericxie.github.io/2020/08/30/CPL2020-solution/index.html">
 <meta property="og:site_name" content="Eric Xie&#39;s Blog">
 <meta property="og:description" content="2020年程序设计实践练习题题解。">
-<meta property="og:updated_time" content="2020-08-31T04:35:45.838Z">
+<meta property="og:updated_time" content="2020-09-14T06:57:29.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2020年程序设计实践练习题解">
 <meta name="twitter:description" content="2020年程序设计实践练习题题解。">
@@ -545,7 +545,46 @@
 <p>比如$P=\Big( \begin{array}\, 1&amp;2&amp;3&amp;4&amp;5&amp;6\\2&amp;1&amp;4&amp;5&amp;6&amp;3 \end{array} \Big)$，其由两个子置换组成<br>$P=\Big( \begin{array}\, 1&amp;2\\2&amp;1 \end{array} \Big)\Big( \begin{array}\, 3&amp;4&amp;5&amp;6\\4&amp;5&amp;6&amp;3 \end{array} \Big)$，</p>
 <p>所以置换$P$的周期是子置换周期的乘积, $2\times 4 = 8$。</p>
 <p>类似于dfs（不过这个直接写循环就可以了），枚举置换的每个位置，如果这个位置不在已经查找过的子置换中，就不停寻找子置换的下一个位置，直到回到这个位置，这样求得这个子置换的周期，然后将这个子周期乘进去即可。</p>
-<h3 id="1266-RGB"><a href="#1266-RGB" class="headerlink" title="1266 RGB"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1266" target="_blank" rel="external"><span id="2-2">1266 RGB</span></a></h3><h3 id="1271-Color"><a href="#1271-Color" class="headerlink" title="1271 Color"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1271" target="_blank" rel="external"><span id="2-3">1271 Color</span></a></h3><h3 id="1273-Set"><a href="#1273-Set" class="headerlink" title="1273 Set"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1273" target="_blank" rel="external"><span id="2-4">1273 Set</span></a></h3><h3 id="1295-Flawless-Prime"><a href="#1295-Flawless-Prime" class="headerlink" title="1295 Flawless Prime"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1295" target="_blank" rel="external"><span id="2-5">1295 Flawless Prime</span></a></h3><h3 id="1123-duoxida的数字游戏"><a href="#1123-duoxida的数字游戏" class="headerlink" title="1123 duoxida的数字游戏"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1123" target="_blank" rel="external"><span id="2-6">1123 duoxida的数字游戏</span></a></h3><h3 id="1172-因子和"><a href="#1172-因子和" class="headerlink" title="1172 因子和"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1172" target="_blank" rel="external"><span id="2-7">1172 因子和</span></a></h3><h3 id="1279-Dual-Prime"><a href="#1279-Dual-Prime" class="headerlink" title="1279 Dual Prime"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1279" target="_blank" rel="external"><span id="2-8">1279 Dual Prime</span></a></h3><h3 id="1348-数字"><a href="#1348-数字" class="headerlink" title="1348 数字"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1348" target="_blank" rel="external"><span id="2-9">1348 数字</span></a></h3><hr>
+<h3 id="1266-RGB"><a href="#1266-RGB" class="headerlink" title="1266 RGB"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1266" target="_blank" rel="external"><span id="2-2">1266 RGB</span></a></h3><ol>
+<li>先统计RGB各有多少个，来确定R,G,B三个区域的大小</li>
+<li>再统计R区有多少个G和B球，G区有多少个R和B，B区有多少个R和G</li>
+<li>显然RG和GR，RB和BR，GB和BG 先进行交换，每种都取小的，记入结果。</li>
+<li>剩下的必然只能进行轮换，对结果的贡献为剩余的某一种球的数量*2。</li>
+</ol>
+<h3 id="1271-Color"><a href="#1271-Color" class="headerlink" title="1271 Color"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1271" target="_blank" rel="external"><span id="2-3">1271 Color</span></a></h3><p>1，枚举黑色的格子，统计行和列，找出有多少行c和列r不存在黑色格子</p>
+<ol>
+<li>利用容斥可得，ans = c <em> n +  r </em> m - c * r</li>
+</ol>
+<h3 id="1273-Set"><a href="#1273-Set" class="headerlink" title="1273 Set"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1273" target="_blank" rel="external"><span id="2-4">1273 Set</span></a></h3><ol>
+<li>显然，如果不超过4种数，必然有解。</li>
+<li>对于一个数$n$来说， 通过两步操作，可以得到 $n,n+x,n-y,n+x-y$ ,最多四种不同的情况。所以如果超过5种数，那么必然无解。</li>
+<li>不妨设四种数依次为$a&lt;b&lt;c&lt;d$, 显然我们只能变成中间的数，所以不妨设都变成b<script type="math/tex; mode=display">
+\left\{\begin{array}\,
+a + x = b \\
+c+x-y = b \\
+d-y = b   \\
+\end{array}
+\right.</script>化简可得$b+c = a + d$。所以如果满足这个条件，则有解，否则无解。</li>
+</ol>
+<h3 id="1295-Flawless-Prime"><a href="#1295-Flawless-Prime" class="headerlink" title="1295 Flawless Prime"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1295" target="_blank" rel="external"><span id="2-5">1295 Flawless Prime</span></a></h3><p>依次枚举判断素数即可。对于每次移除最高位，只要先求一个$m=10^k，且m&gt;n$即可很容易每次去掉n的最高位了。</p>
+<p>也可以按位枚举出所有的无瑕素数，然后打表进行二分查找。</p>
+<h3 id="1123-duoxida的数字游戏"><a href="#1123-duoxida的数字游戏" class="headerlink" title="1123 duoxida的数字游戏"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1123" target="_blank" rel="external"><span id="2-6">1123 duoxida的数字游戏</span></a></h3><ol>
+<li>从k到n的球必须同色，否则无解。因为如果存在不同色的球，那么这个球必然在移动的过程中无法被去除。</li>
+<li>从k往前，如果连续同色的球的不需要被去除，所以步数就是比k小的连续与k同色的球的位置-1。</li>
+</ol>
+<h3 id="1172-因子和"><a href="#1172-因子和" class="headerlink" title="1172 因子和"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1172" target="_blank" rel="external"><span id="2-7">1172 因子和</span></a></h3><p>根据唯一因式分解定理 $n = p_1 ^{k_1} \times p_2^{k_2} \times \ldots \times p_m^{k_m}$。</p>
+<p>根据生成函数可知<br>$\prod_{i=1}^m{\sum_{j=0}^{k_i}{p_i^j}}$ 可以生成所有的因子的和，所以<br>因子和 <script type="math/tex">\sigma(n) = \prod_{i=1}^m {\sum_{j=0}^{k_i}{p_i^j}} = \prod_{i=1}^m{\frac{ p_i^{k_i+1}}{p_i - 1}}</script></p>
+<h3 id="1279-Dual-Prime"><a href="#1279-Dual-Prime" class="headerlink" title="1279 Dual Prime"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1279" target="_blank" rel="external"><span id="2-8">1279 Dual Prime</span></a></h3><ol>
+<li>暴力枚举会TLE</li>
+<li>考虑朴素埃筛中，所有的双素数都会被标记2次，但是被标记两次的数中，还有一部分是素因子平方倍数的数，所以，把这些数再标记出来就可以筛出所有的双素数。</li>
+<li>剩下的和素数个数的做法相同了。</li>
+</ol>
+<h3 id="1348-数字"><a href="#1348-数字" class="headerlink" title="1348 数字"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1348" target="_blank" rel="external"><span id="2-9">1348 数字</span></a></h3><ol>
+<li>枚举所有数码的倍数的个位集合$S_i$。</li>
+<li>如果对于n的个位和k的个位$k_0$, $n_0 \notin S_{k_0}）$，那么必然不可能出现尾部为0的情况，此时的步数为 $\lfloor n / k \rfloor$ ， 结果为 $n \mod k $。</li>
+<li>否则，则取对应的倍数t， t+1为步数， n - k*t ，再去掉尾部的0 ，为新的 n 继续迭代。</li>
+</ol>
+<hr>
 <p>To be continue … </p>
 
       

@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://ericxie.github.io/2020/08/30/CPL2020-solution/index.html">
 <meta property="og:site_name" content="Eric Xie&#39;s Blog">
 <meta property="og:description" content="2020年程序设计实践练习题题解。">
-<meta property="og:updated_time" content="2020-09-15T03:05:11.071Z">
+<meta property="og:updated_time" content="2020-09-28T12:53:38.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2020年程序设计实践练习题解">
 <meta name="twitter:description" content="2020年程序设计实践练习题题解。">
@@ -388,6 +388,7 @@
 <li>2020-08-30 练习1题解</li>
 <li>2020-09-14 练习2题解</li>
 <li>2020-09-15 练习3题解</li>
+<li>2020-09-28 练习4题解</li>
 </ul>
 <h2 id="练习1"><a href="#练习1" class="headerlink" title="练习1"></a>练习1</h2><p>本练习题目以枚举、执行为主，属于考试中容易类型的题目。</p>
 <div class="table-container">
@@ -682,6 +683,99 @@ d-y = b   \\
 <li>求得最大高度和出现的字符种类数，用二维数组做画布（画布初始为全空格），按列从左到右，从下到上画柱状图。</li>
 <li>然后按行，把尾部的空格改成串结束符，最后按行输出即可。</li>
 </ol>
+<h2 id="练习4"><a href="#练习4" class="headerlink" title="练习4"></a>练习4</h2><p>本练习主要是递推，属于中档，偏难的类型。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">题号</th>
+<th style="text-align:left">题目</th>
+<th style="text-align:left">类型 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1249</td>
+<td style="text-align:left"><a href="#4-1">Alice’s Prime</a></td>
+<td style="text-align:left">递推</td>
+</tr>
+<tr>
+<td style="text-align:right">1274</td>
+<td style="text-align:left"><a href="#4-2">Matrix</a></td>
+<td style="text-align:left">找规律</td>
+</tr>
+<tr>
+<td style="text-align:right">1274</td>
+<td style="text-align:left"><a href="#4-3">Good Number</a></td>
+<td style="text-align:left">推公式</td>
+</tr>
+<tr>
+<td style="text-align:right">1283</td>
+<td style="text-align:left"><a href="#4-4">Beautiful Number</a></td>
+<td style="text-align:left">递推</td>
+</tr>
+<tr>
+<td style="text-align:right">1307</td>
+<td style="text-align:left"><a href="#4-5">填颜色</a></td>
+<td style="text-align:left">推公式</td>
+</tr>
+<tr>
+<td style="text-align:right">1168</td>
+<td style="text-align:left"><a href="#4-6">Coins</a></td>
+<td style="text-align:left">推公式</td>
+</tr>
+<tr>
+<td style="text-align:right">1171</td>
+<td style="text-align:left"><a href="#4-7">LOVE</a></td>
+<td style="text-align:left">递推</td>
+</tr>
+<tr>
+<td style="text-align:right">1224</td>
+<td style="text-align:left"><a href="#4-8">Unique Digit Number</a></td>
+<td style="text-align:left">递推</td>
+</tr>
+<tr>
+<td style="text-align:right">1270</td>
+<td style="text-align:left"><a href="#4-9">比赛</a></td>
+<td style="text-align:left">推公式</td>
+</tr>
+<tr>
+<td style="text-align:right">1286</td>
+<td style="text-align:left"><a href="#4-10">Wave</a></td>
+<td style="text-align:left">推公式</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="1249-Alice’s-Prime"><a href="#1249-Alice’s-Prime" class="headerlink" title="1249  Alice’s Prime"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1249" target="_blank" rel="external"><span id="4-1">1249  Alice’s Prime</span></a></h3><p>首先，${2,3,5,7}$是属于解集$S$的，从小到大枚举$S$, 对于$x \in S$, 那么枚举${10x+1,10x+3,10x+7,10x+9}$是否是素数，是的话，加入$S$，直到枚举完$S$。</p>
+<h3 id="1274-Matrix"><a href="#1274-Matrix" class="headerlink" title="1274  Matrix"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1274" target="_blank" rel="external"><span id="4-2">1274  Matrix</span></a></h3><p>观察可知，偶数行为$4,16,36$，是$2^2,4^2,6^2$，而奇数行为$0^2+1,2^2+1,4^2+1$。<br>所以当$n=2m$时，和$S_{2m} = \sum_{i=1}^m{(2i)^2} + \sum_{i=0}^{m-1}{((2i)^2 + 1)} = 8\sum_{i=1}^{m-1}{i^2} + m + 4m^2 = 4 \frac{(m-1)m(2m-1)}{3} + m + 4m^2$;<br>当$n=2m+1$时，$S_{2m+1} = S_{2m} + 4m^2 + 1 $。<br>由于有除$3$，这个时候可以讨论$m/mod 3$的值，先除掉$3$再进行取余计算；当然也可以乘$3$对于$10^9+7$的逆元$333333336$，这样会更方便些。</p>
+<h3 id="1283-Good-Number"><a href="#1283-Good-Number" class="headerlink" title="1283  Good Number"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1283" target="_blank" rel="external"><span id="4-3">1283  Good Number</span></a></h3><p>由于无前导$0$，所以第一位肯定为$1$,后面的$n-1$位中，至少需要$\lfloor\frac{n}{2}\rfloor$位$1$。<br>所以$n$位好数的数量为</p>
+<script type="math/tex; mode=display">S_n = \sum_{i=\lfloor\frac{n}{2}\rfloor}^{n-1}{\binom{n-1}{i}}</script><p>考虑$2$次项系数的对称性</p>
+<script type="math/tex; mode=display">
+S_n = \begin{cases}
+2^{n-2} & when\; n = 2m \\
+2^{n-2} + \frac{1}{2}\binom{n-1}{m} & when \;n = 2m+1 , m \ge 1 \\
+1                        & when \;n = 1
+\end{cases}</script><h3 id="1307-Beautiful-Number"><a href="#1307-Beautiful-Number" class="headerlink" title="1307  Beautiful Number"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1307" target="_blank" rel="external"><span id="4-4">1307  Beautiful Number</span></a></h3><p>先枚举出所有美丽数，对于查询，二分查找（暴力找也可以）就可以了。</p>
+<p>枚举美丽数，可以从$3$到$63$位$1$中，去枚举中间那个$0$得到所有的美丽数。</p>
+<h3 id="1168-填颜色"><a href="#1168-填颜色" class="headerlink" title="1168  填颜色"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1168" target="_blank" rel="external"><span id="4-5">1168  填颜色</span></a></h3><p>先考虑一些特殊的情况，$m=1$时,$f(1) = 1$ 其他 $f(n) = 0$。 $m=2$时,$f(1) = 2$ , $n$是偶数时，$f(n) = 2$，其他$f(n) = 0 $。<br>当$m&gt;2$时， $f(1) = m , f(2) = m(m-1)，f(3) = m(m-1)(m-2) $ 。 当$n&gt;3$时，我们考虑第$n$格子，假设它的颜色是$1$，那么第$1$个和第$n-1$格与其不同色，而这两个格子有两种情况:</p>
+<ol>
+<li>相等，此时 前$n-2$格必然是原问题，所以此时的前$n-2$格的方案数为$f(n-2)$,第$n-1$格与第$1$格相同，方案数为$1$，第$n$格的方案数为$m-1$，所以方案数为$(m-1)f(n-2)$。</li>
+<li>不相等，那么此时前$n-1$格必然是原问题，所以此时的方案数为$(m-2)f(n-1)$。</li>
+</ol>
+<p>所以，方案数$f(n)=(m-2)f(n-1)+(m-1)f(n-2)$。</p>
+<h3 id="1171-Coins"><a href="#1171-Coins" class="headerlink" title="1171  Coins"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1171" target="_blank" rel="external"><span id="4-6">1171  Coins</span></a></h3><p>等价于斐波那契数列</p>
+<h3 id="1224-LOVE"><a href="#1224-LOVE" class="headerlink" title="1224  LOVE"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1224" target="_blank" rel="external"><span id="4-7">1224  LOVE</span></a></h3><p><code>dp[n][4]</code> 表示前<code>n</code>个字符中，<code>“L”,”LO”,”LOV”,”LOVE”</code>子序列的个数。<br>当第<code>i</code>个字符是<code>‘L’</code>时，<code>dp[i][0] = dp[i-1][0] + 1</code>;<br>当第<code>i</code>个字符是<code>‘O’</code>时，<code>dp[i][1] = dp[i-1][1] + dp[i-1][0]</code>;<br>当第<code>i</code>个字符是<code>‘V’</code>时，<code>dp[i][2] = dp[i-1][2] + dp[i-1][1]</code>;<br>当第<code>i</code>个字符是<code>‘E’</code>时，<code>dp[i][3] = dp[i-1][3] + dp[i-1][2]</code>;</p>
+<p>由于递推时，只和之前的一行有关，可以用一维数组来减少内存使用。</p>
+<p>当第<code>i</code>个字符是<code>‘L’</code>时，<code>dp[0]++</code>;<br>当第<code>i</code>个字符是<code>‘O’</code>时，<code>dp[1]+= dp[0]</code>;<br>当第<code>i</code>个字符是<code>‘V’</code>时，<code>dp[2]+= dp[1]</code>;<br>当第<code>i</code>个字符是<code>‘E’</code>时，<code>dp[3]+= dp[2]</code>;</p>
+<p><code>dp[3]</code>为所求。</p>
+<h3 id="1270-Unique-Digit-Number"><a href="#1270-Unique-Digit-Number" class="headerlink" title="1270  Unique Digit Number"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1270" target="_blank" rel="external"><span id="4-8">1270  Unique Digit Number</span></a></h3><p>如果$x$是UDN，并记录下它使用了哪些数码（二进制状态表示），枚举数码$d$，如果$d$没有被使用，那么$10x+d$也是UDN。</p>
+<p>这样，我们可以用一个队列来产生所有的UDN，最开始队列中有$0到9$,然后从$1$开始枚举，直到枚举完整个队列。</p>
+<p>题目已经告诉你，这样的数一共有$8877691$个。</p>
+<h3 id="1286-比赛"><a href="#1286-比赛" class="headerlink" title="1286  比赛"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1286" target="_blank" rel="external"><span id="4-9">1286  比赛</span></a></h3><p>我们将比赛可以描述成一棵二叉树，其叶子节点为选手的数量。根据题目要求，这颗树必然是AVL平衡树。题目相当于说，$n$个叶子节点AVL树最高是多少？</p>
+<p>我们不妨设对于每个根节点，其左子树高度都不小于右子树高度。<br>最少叶子节点的AVL树假设高度是$h$，那么最少节点数$f(h) = f(h-1) + f(h-2) + 1$。<br>由于不存在度为1的点，叶子节点即参赛队员数$n$，所以$f(h) = 2n - 1$。<br>我们假设$g(h) = n$,那么$f(h) = 2g(h)-1$，所以$g(h) = g(h-1) + g(h-2)$。<br>显然$g(1) = 1, g(2) = 2$。</p>
+<h3 id="1340-Wave"><a href="#1340-Wave" class="headerlink" title="1340  Wave"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1340" target="_blank" rel="external"><span id="4-10">1340  Wave</span></a></h3><p>假设不考虑平波，那么$n$为奇数时无解，$n$为偶数时相当于$2k$位有$k$位为$1$的二进制数有多少个？ $\binom{2k}{k}$</p>
+<p>考虑平波，那么枚举平波的个数$i$，<script type="math/tex">S(n) = \sum_{i=0}^n{\binom{n}{i}\binom{n-i}{\frac{n-i}{2}}}\, , \, n-i\,是偶数</script></p>
 <hr>
 <p>To be continue … </p>
 
@@ -975,7 +1069,7 @@ d-y = b   \\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习1"><span class="nav-number">1.</span> <span class="nav-text">练习1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1127-数列"><span class="nav-number">1.1.</span> <span class="nav-text">1127 数列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1251-Colombian-Number"><span class="nav-number">1.2.</span> <span class="nav-text">1251 Colombian Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1252-Matrix-Word"><span class="nav-number">1.3.</span> <span class="nav-text">1252 Matrix Word</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1253-Robot"><span class="nav-number">1.4.</span> <span class="nav-text">1253 Robot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1263-矩形面积的并"><span class="nav-number">1.5.</span> <span class="nav-text">1263 矩形面积的并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1272-Robot"><span class="nav-number">1.6.</span> <span class="nav-text">1272 Robot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1280-String-Hash"><span class="nav-number">1.7.</span> <span class="nav-text">1280 String Hash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1281-Cute-String"><span class="nav-number">1.8.</span> <span class="nav-text">1281 Cute String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1292-Co-string"><span class="nav-number">1.9.</span> <span class="nav-text">1292 Co-string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1294-Enquiry"><span class="nav-number">1.10.</span> <span class="nav-text">1294 Enquiry</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习2"><span class="nav-number">2.</span> <span class="nav-text">练习2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1241-Permutation"><span class="nav-number">2.1.</span> <span class="nav-text">1241 Permutation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1266-RGB"><span class="nav-number">2.2.</span> <span class="nav-text">1266 RGB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1271-Color"><span class="nav-number">2.3.</span> <span class="nav-text">1271 Color</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1273-Set"><span class="nav-number">2.4.</span> <span class="nav-text">1273 Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1295-Flawless-Prime"><span class="nav-number">2.5.</span> <span class="nav-text">1295 Flawless Prime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1123-duoxida的数字游戏"><span class="nav-number">2.6.</span> <span class="nav-text">1123 duoxida的数字游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1172-因子和"><span class="nav-number">2.7.</span> <span class="nav-text">1172 因子和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1279-Dual-Prime"><span class="nav-number">2.8.</span> <span class="nav-text">1279 Dual Prime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1348-数字"><span class="nav-number">2.9.</span> <span class="nav-text">1348 数字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习3"><span class="nav-number">3.</span> <span class="nav-text">练习3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1163-ASCII"><span class="nav-number">3.1.</span> <span class="nav-text">1163 ASCII</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1170-ICPC"><span class="nav-number">3.2.</span> <span class="nav-text">1170 ICPC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1248-Alice-and-Bob"><span class="nav-number">3.3.</span> <span class="nav-text">1248 Alice and Bob</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1239-2048"><span class="nav-number">3.4.</span> <span class="nav-text">1239 2048</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1243-Bob’s-Password"><span class="nav-number">3.5.</span> <span class="nav-text">1243 Bob’s Password</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1267-Matrix"><span class="nav-number">3.6.</span> <span class="nav-text">1267 Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1275-Exam-Schedule"><span class="nav-number">3.7.</span> <span class="nav-text">1275 Exam Schedule</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1287-银行"><span class="nav-number">3.8.</span> <span class="nav-text">1287 银行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1297-Homework"><span class="nav-number">3.9.</span> <span class="nav-text">1297 Homework</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1326-Diagram"><span class="nav-number">3.10.</span> <span class="nav-text">1326 Diagram</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习1"><span class="nav-number">1.</span> <span class="nav-text">练习1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1127-数列"><span class="nav-number">1.1.</span> <span class="nav-text">1127 数列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1251-Colombian-Number"><span class="nav-number">1.2.</span> <span class="nav-text">1251 Colombian Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1252-Matrix-Word"><span class="nav-number">1.3.</span> <span class="nav-text">1252 Matrix Word</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1253-Robot"><span class="nav-number">1.4.</span> <span class="nav-text">1253 Robot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1263-矩形面积的并"><span class="nav-number">1.5.</span> <span class="nav-text">1263 矩形面积的并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1272-Robot"><span class="nav-number">1.6.</span> <span class="nav-text">1272 Robot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1280-String-Hash"><span class="nav-number">1.7.</span> <span class="nav-text">1280 String Hash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1281-Cute-String"><span class="nav-number">1.8.</span> <span class="nav-text">1281 Cute String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1292-Co-string"><span class="nav-number">1.9.</span> <span class="nav-text">1292 Co-string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1294-Enquiry"><span class="nav-number">1.10.</span> <span class="nav-text">1294 Enquiry</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习2"><span class="nav-number">2.</span> <span class="nav-text">练习2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1241-Permutation"><span class="nav-number">2.1.</span> <span class="nav-text">1241 Permutation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1266-RGB"><span class="nav-number">2.2.</span> <span class="nav-text">1266 RGB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1271-Color"><span class="nav-number">2.3.</span> <span class="nav-text">1271 Color</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1273-Set"><span class="nav-number">2.4.</span> <span class="nav-text">1273 Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1295-Flawless-Prime"><span class="nav-number">2.5.</span> <span class="nav-text">1295 Flawless Prime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1123-duoxida的数字游戏"><span class="nav-number">2.6.</span> <span class="nav-text">1123 duoxida的数字游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1172-因子和"><span class="nav-number">2.7.</span> <span class="nav-text">1172 因子和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1279-Dual-Prime"><span class="nav-number">2.8.</span> <span class="nav-text">1279 Dual Prime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1348-数字"><span class="nav-number">2.9.</span> <span class="nav-text">1348 数字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习3"><span class="nav-number">3.</span> <span class="nav-text">练习3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1163-ASCII"><span class="nav-number">3.1.</span> <span class="nav-text">1163 ASCII</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1170-ICPC"><span class="nav-number">3.2.</span> <span class="nav-text">1170 ICPC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1248-Alice-and-Bob"><span class="nav-number">3.3.</span> <span class="nav-text">1248 Alice and Bob</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1239-2048"><span class="nav-number">3.4.</span> <span class="nav-text">1239 2048</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1243-Bob’s-Password"><span class="nav-number">3.5.</span> <span class="nav-text">1243 Bob’s Password</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1267-Matrix"><span class="nav-number">3.6.</span> <span class="nav-text">1267 Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1275-Exam-Schedule"><span class="nav-number">3.7.</span> <span class="nav-text">1275 Exam Schedule</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1287-银行"><span class="nav-number">3.8.</span> <span class="nav-text">1287 银行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1297-Homework"><span class="nav-number">3.9.</span> <span class="nav-text">1297 Homework</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1326-Diagram"><span class="nav-number">3.10.</span> <span class="nav-text">1326 Diagram</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习4"><span class="nav-number">4.</span> <span class="nav-text">练习4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1249-Alice’s-Prime"><span class="nav-number">4.1.</span> <span class="nav-text">1249  Alice’s Prime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1274-Matrix"><span class="nav-number">4.2.</span> <span class="nav-text">1274  Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1283-Good-Number"><span class="nav-number">4.3.</span> <span class="nav-text">1283  Good Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1307-Beautiful-Number"><span class="nav-number">4.4.</span> <span class="nav-text">1307  Beautiful Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1168-填颜色"><span class="nav-number">4.5.</span> <span class="nav-text">1168  填颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1171-Coins"><span class="nav-number">4.6.</span> <span class="nav-text">1171  Coins</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1224-LOVE"><span class="nav-number">4.7.</span> <span class="nav-text">1224  LOVE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1270-Unique-Digit-Number"><span class="nav-number">4.8.</span> <span class="nav-text">1270  Unique Digit Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1286-比赛"><span class="nav-number">4.9.</span> <span class="nav-text">1286  比赛</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1340-Wave"><span class="nav-number">4.10.</span> <span class="nav-text">1340  Wave</span></a></li></ol></li></ol></div>
             
 
           </div>

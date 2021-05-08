@@ -1,0 +1,1149 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="算法,题解,程序设计实践,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="2021年程序设计实践练习题题解。">
+<meta name="keywords" content="算法,题解,程序设计实践">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021年程序设计实践练习题解">
+<meta property="og:url" content="http://ericxie.github.io/2021/05/07/2021PP-solution/index.html">
+<meta property="og:site_name" content="Eric Xie&#39;s Blog">
+<meta property="og:description" content="2021年程序设计实践练习题题解。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ericxie.github.io/images/exam_1245.jpg">
+<meta property="og:updated_time" content="2021-05-08T15:56:03.536Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2021年程序设计实践练习题解">
+<meta name="twitter:description" content="2021年程序设计实践练习题题解。">
+<meta name="twitter:image" content="http://ericxie.github.io/images/exam_1245.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ericxie.github.io/2021/05/07/2021PP-solution/">
+
+
+
+
+
+  <title>2021年程序设计实践练习题解 | Eric Xie's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eric Xie's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">教书匠，伪码农</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://ericxie.github.io/2021/05/07/2021PP-solution/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eric Xie">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eric Xie's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2021年程序设计实践练习题解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-07T15:34:59+08:00">
+                2021-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/课程/" itemprop="url" rel="index">
+                    <span itemprop="name">课程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/课程/程序设计实践/" itemprop="url" rel="index">
+                    <span itemprop="name">程序设计实践</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  2021年程序设计实践练习题题解。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>部分题解在<a href="https://ericxie.github.io/2020/08/30/CPL2020-solution/">2020题解</a>的帖子里，这里是剩余和今年更换后的题目的题解</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">题号</th>
+<th style="text-align:left">题目</th>
+<th style="text-align:left">类型 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1160</td>
+<td style="text-align:left"><a href="#1160">猜数字</a></td>
+<td style="text-align:left">回溯</td>
+</tr>
+<tr>
+<td style="text-align:right">1167</td>
+<td style="text-align:left"><a href="#1167">逆序数（大数据）</a></td>
+<td style="text-align:left">归并</td>
+</tr>
+<tr>
+<td style="text-align:right">1174</td>
+<td style="text-align:left"><a href="#1174">栈</a></td>
+<td style="text-align:left">栈</td>
+</tr>
+<tr>
+<td style="text-align:right">1179</td>
+<td style="text-align:left"><a href="#1179">Shortest Path</a></td>
+<td style="text-align:left">最短路</td>
+</tr>
+<tr>
+<td style="text-align:right">1186</td>
+<td style="text-align:left"><a href="#1186">Tourist 2</a></td>
+<td style="text-align:left">回溯</td>
+</tr>
+<tr>
+<td style="text-align:right">1195</td>
+<td style="text-align:left"><a href="#1195">Large Population</a></td>
+<td style="text-align:left">最小生成树</td>
+</tr>
+<tr>
+<td style="text-align:right">1244</td>
+<td style="text-align:left"><a href="#1244">Estrella’s Chocolate</a></td>
+<td style="text-align:left">二分</td>
+</tr>
+<tr>
+<td style="text-align:right">1245</td>
+<td style="text-align:left"><a href="#1245">Lisa’s Puzzle</a></td>
+<td style="text-align:left">字典树</td>
+</tr>
+<tr>
+<td style="text-align:right">1250</td>
+<td style="text-align:left"><a href="#1250">Bonus</a></td>
+<td style="text-align:left">拓扑排序</td>
+</tr>
+<tr>
+<td style="text-align:right">1262</td>
+<td style="text-align:left"><a href="#1262">Fish</a></td>
+<td style="text-align:left">贪心</td>
+</tr>
+<tr>
+<td style="text-align:right">1264</td>
+<td style="text-align:left"><a href="#1264">字符不重复子串</a></td>
+<td style="text-align:left">两点</td>
+</tr>
+<tr>
+<td style="text-align:right">1269</td>
+<td style="text-align:left"><a href="#1269">Craftman</a></td>
+<td style="text-align:left">二分</td>
+</tr>
+<tr>
+<td style="text-align:right">1288</td>
+<td style="text-align:left"><a href="#1288">Binary Search Tree</a></td>
+<td style="text-align:left">二叉树</td>
+</tr>
+<tr>
+<td style="text-align:right">1289</td>
+<td style="text-align:left"><a href="#1289">3的倍数</a></td>
+<td style="text-align:left">DP</td>
+</tr>
+<tr>
+<td style="text-align:right">1291</td>
+<td style="text-align:left"><a href="#1291">Buying Gifts</a></td>
+<td style="text-align:left">排序，两点</td>
+</tr>
+<tr>
+<td style="text-align:right">1302</td>
+<td style="text-align:left"><a href="#1302">Balance Tree</a></td>
+<td style="text-align:left">二叉树</td>
+</tr>
+<tr>
+<td style="text-align:right">1303</td>
+<td style="text-align:left"><a href="#1303">Sequence</a></td>
+<td style="text-align:left">dp</td>
+</tr>
+<tr>
+<td style="text-align:right">1304</td>
+<td style="text-align:left"><a href="#1304">ZUMA!</a></td>
+<td style="text-align:left">模拟，递归</td>
+</tr>
+<tr>
+<td style="text-align:right">1305</td>
+<td style="text-align:left"><a href="#1305">斐波那契区间</a></td>
+<td style="text-align:left">两点</td>
+</tr>
+<tr>
+<td style="text-align:right">1347</td>
+<td style="text-align:left"><a href="#1347">消消乐</a></td>
+<td style="text-align:left">模拟，递归</td>
+</tr>
+<tr>
+<td style="text-align:right">1356</td>
+<td style="text-align:left"><a href="#1356">Maze</a></td>
+<td style="text-align:left">模拟</td>
+</tr>
+<tr>
+<td style="text-align:right">1370</td>
+<td style="text-align:left"><a href="#1370">Ball</a></td>
+<td style="text-align:left">floyd</td>
+</tr>
+<tr>
+<td style="text-align:right">1365</td>
+<td style="text-align:left"><a href="#1365">Rotate</a></td>
+<td style="text-align:left">枚举</td>
+</tr>
+<tr>
+<td style="text-align:right">1366</td>
+<td style="text-align:left"><a href="#1366">Distance</a></td>
+<td style="text-align:left">排序，两点</td>
+</tr>
+<tr>
+<td style="text-align:right">1367</td>
+<td style="text-align:left"><a href="#1367">Min Base</a></td>
+<td style="text-align:left">枚举，查找</td>
+</tr>
+<tr>
+<td style="text-align:right">1368</td>
+<td style="text-align:left"><a href="#1368">substring</a></td>
+<td style="text-align:left">两点</td>
+</tr>
+<tr>
+<td style="text-align:right">1369</td>
+<td style="text-align:left"><a href="#1369">Black White Chess</a></td>
+<td style="text-align:left">bfs</td>
+</tr>
+<tr>
+<td style="text-align:right">1378</td>
+<td style="text-align:left"><a href="#1378">Blocks</a></td>
+<td style="text-align:left">递推</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a id="more"></a>
+<h3 id="1160-猜数字"><a href="#1160-猜数字" class="headerlink" title="1160 猜数字"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1160" target="_blank" rel="noopener"><span id="1160">1160 猜数字</span></a></h3><p>枚举$N$的全排列(使用回溯或者STL的<code>next_permutation</code>方法)，判断排列是否和询问的结果匹配。</p>
+<h3 id="1167-逆序数（大数据）"><a href="#1167-逆序数（大数据）" class="headerlink" title="1167 逆序数（大数据）"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1167" target="_blank" rel="noopener"><span id="1167">1167 逆序数（大数据）</span></a></h3><p>常见做法是归并排序或者树状数组、线段树来求。这里介绍归并排序的做法。</p>
+<p>考虑归并排序时，合并时的两个子序列是有序的，不妨设为左右两个子序列，区间<code>[left,mid-1]</code>为左序列，区间<code>[mid,right]</code>为右序列，其中<code>i</code>指向左边子序列的待合并元素，<code>j</code>指向右边子序列的待合并序列。如果<code>a[i]&gt;a[j]</code>，那么也就意味着左序列中从<code>[i,mid-1]</code>的所有元素都会大于<code>a[j]</code>,此时对于逆序数的贡献为<code>mid - i</code>。</p>
+<p>所以我们只要稍微修改一下归并排序算法，就可以用来计算一个序列的逆序数，时间复杂度为$O(nlogn)$。</p>
+<h3 id="1174-栈"><a href="#1174-栈" class="headerlink" title="1174 栈"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1174" target="_blank" rel="noopener"><span id="1174">1174 栈</span></a></h3><p>问题的核心时怎么能快速知道栈里的最小值，其他是栈的基本操作。</p>
+<p>对于栈的元素，我们存两个值，一个是压栈元素的大小<code>val</code>，一个是以此元素为栈顶的栈的栈内元素最小值<code>min</code>。</p>
+<p>当一个新值压栈时，与之前栈顶里的栈内元素最小值比较以来，来维护新栈顶的<code>min</code>。</p>
+<p>这样查询最小值操作时，直接看栈顶的<code>min</code>值即可。</p>
+<p>弹栈的时候，不需要额外操作。</p>
+<p>所以压栈，弹栈，查最小值三个的操作时间复杂度都为$O(1)$。</p>
+<p>所以总体时间复杂度为$O(M)$</p>
+<h3 id="1179-Shortest-Path"><a href="#1179-Shortest-Path" class="headerlink" title="1179 Shortest Path"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1179" target="_blank" rel="noopener"><span id="1179">1179 Shortest Path</span></a></h3><p>首先，你要会写dijkstra算法求最短路，这个题朴素$(V^2)$的或者二叉堆优化的$ElogV$的都可以。</p>
+<p>起点经过途中点到终点，依次为$c_1,c_2,\ldots,c_{k+2}$，依次求$c_i$到$c_{i+1}$的最短路，再把$c_i$删掉（不用真删，直接屏蔽掉就好）。</p>
+<h3 id="1186-Tourist-2"><a href="#1186-Tourist-2" class="headerlink" title="1186 Tourist 2"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1186" target="_blank" rel="noopener"><span id="1186">1186 Tourist 2</span></a></h3><p>可以观察到$N$很小，最多为$9$，所以枚举$N$的全排列即可。 $O(N!)$</p>
+<h3 id="1195-Large-Population"><a href="#1195-Large-Population" class="headerlink" title="1195 Large Population"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1195" target="_blank" rel="noopener"><span id="1195">1195 Large Population</span></a></h3><p>求最大生成树，由于生成树的边数一定是$N-1$，所以只要模仿最小生成树的做法即可。 题目给定的数据范围，用prim(时间复杂度为$O(V^2)$。)或者kruskal(时间复杂度为$O(ElogV)$)。都可以。</p>
+<h3 id="1244-Estrella’s-Chocolate"><a href="#1244-Estrella’s-Chocolate" class="headerlink" title="1244 Estrella’s Chocolate"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1244" target="_blank" rel="noopener"><span id="1244">1244 Estrella’s Chocolate</span></a></h3><p>题目是一个经典的求最小值最大问题的模型。</p>
+<p>二分每天吃的热量最大值，对于这个热量，贪心求出多少天吃完这些巧克力。求二分值的下限。</p>
+<p>时间复杂度为$O(Nlog(NM))$。</p>
+<h3 id="1245-Lisa’s-Puzzle"><a href="#1245-Lisa’s-Puzzle" class="headerlink" title="1245 Lisa’s Puzzle"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1245" target="_blank" rel="noopener"><span id="1245">1245 Lisa’s Puzzle</span></a></h3><p>按照数字二进制的逆序建立字典树（不过只有0和1，所以其实是个二叉树）。<br>字典树的节点上存有多少个数在建树时通过了这个节点。</p>
+<p>再对于所有的数，进行字典树的查询即可。</p>
+<p>样例对应的字典树为</p>
+<p><img src="/images/exam_1245.jpg"></p>
+<p>时间复杂度为$O(n)$。</p>
+<h3 id="1250-Bonus"><a href="#1250-Bonus" class="headerlink" title="1250 Bonus"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1250" target="_blank" rel="noopener"><span id="1250">1250 Bonus</span></a></h3><p>有向图拓扑排序，如果存在环，那么所有人都是888；否则按拓扑序分层逆序推算。</p>
+<p>核心代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> v,t;</span><br><span class="line">    visit[u] = <span class="number">-1</span>;	<span class="comment">// u 标记为在访问状态</span></span><br><span class="line">    <span class="keyword">for</span>(t=node[u];t!=<span class="number">-1</span>;t=edge[t][<span class="number">1</span>])&#123;</span><br><span class="line">        v = edge[t][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span>(visit[v] == <span class="number">-1</span>) <span class="keyword">return</span> <span class="number">-1</span>;	<span class="comment">// 存在环</span></span><br><span class="line">        <span class="keyword">if</span>(visit[v] == <span class="number">0</span>) bonus[v] = dfs(v);	<span class="comment">// 记录v的奖励等级</span></span><br><span class="line">        <span class="keyword">if</span>(bonus[v] == <span class="number">-1</span>) <span class="keyword">return</span> <span class="number">-1</span>;			<span class="comment">// u 的孩子节点 v 在环上</span></span><br><span class="line">        <span class="keyword">if</span>(bonus[u] &lt; bonus[v]+<span class="number">1</span>) bonus[u] = bonus[v]+<span class="number">1</span>; 	<span class="comment">// 维护 u 的层级</span></span><br><span class="line">    &#125;</span><br><span class="line">    visit[u] = <span class="number">1</span>;	<span class="comment">// u 标记为完成访问状态</span></span><br><span class="line">    <span class="keyword">return</span> bonus[u];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度为$O(V+E)$。</p>
+<h3 id="1262-Fish"><a href="#1262-Fish" class="headerlink" title="1262 Fish"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1262" target="_blank" rel="noopener"><span id="1262">1262 Fish</span></a></h3><p>使用优先队列维护每次能钓到最多鱼的池塘，贪心求结果。注意，如果队头元素没有鱼或者鱼不会减少，那么就直接结束。时间复杂度为$O(nlogn)$。</p>
+<h3 id="1264-字符不重复子串"><a href="#1264-字符不重复子串" class="headerlink" title="1264 字符不重复子串"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1264" target="_blank" rel="noopener"><span id="1264">1264 字符不重复子串</span></a></h3><p>动态规划，用一个26的数组last记录最近一次出现字母的位置；一个字符串长度的数组len来记录第i个位置为后缀的最长不重复字符的长度。</p>
+<p>对于位置i，<code>len[i] = min{i-last[s[i]],len[i-1]+1}</code>。</p>
+<p>遍历字符串的过程中维护答案，求一个最大的len[i]即可。</p>
+<p>时间复杂度为$O(n)$。</p>
+<h3 id="1269-Craftman"><a href="#1269-Craftman" class="headerlink" title="1269 Craftman"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1269" target="_blank" rel="noopener"><span id="1269">1269 Craftman</span></a></h3><p>这题和<a href="#1244">1244 Estrella’s Chocolate</a>是一个套路。</p>
+<p>二分制作件数，检测需要的兑换券数量是否满足要求。</p>
+<h3 id="1288-Binary-Search-Tree"><a href="#1288-Binary-Search-Tree" class="headerlink" title="1288 Binary Search Tree"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1288" target="_blank" rel="noopener"><span id="1288">1288 Binary Search Tree</span></a></h3><p>基于下面两个事实：</p>
+<pre><code>1. 二叉查找树的中序遍历就是排序结果
+2. 二叉树的中序与前序，或者中序与后序可以唯一确定一棵二叉树。
+</code></pre><p>所以，对于排列，进行二叉查找树的构建，然后做一次前序遍历，得到的序列作为这个二叉查找树的ID。</p>
+<p>如果两棵二叉查找树的前序遍历序列相同，那么就是相同的，否则不同。</p>
+<h3 id="1289-3的倍数"><a href="#1289-3的倍数" class="headerlink" title="1289 3的倍数"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1289" target="_blank" rel="noopener"><span id="1289">1289 3的倍数</span></a></h3><p>递推</p>
+<p>dp[i][j]表示前i个数码组成的数对三取模余数为j的方案数。</p>
+<p>s[i] 表示第i个数码的值</p>
+<p><code>k = s[i] % 3</code></p>
+<p>那么 <code>dp[i-1][j]</code> 对 <code>dp[i][j]</code> 和 <code>dp[i][(j+k)%3]</code> 有贡献。</p>
+<p>所以<code>dp[i][:]</code>只和<code>dp[i-1][:]</code>有关系，所以利用滚动数组来优化空间。</p>
+<p>时间、空间复杂度都为$O(len)$。</p>
+<h3 id="1291-Buying-Gifts"><a href="#1291-Buying-Gifts" class="headerlink" title="1291 Buying Gifts"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1291" target="_blank" rel="noopener"><span id="1291">1291 Buying Gifts</span></a></h3><p>两点法，滑动窗口</p>
+<p>先排序，然后用宽度为n的滑动窗口计算差价和总和。<br>总和计算不要每次都把窗口内的数加起来，利用相邻窗口总和的关系，去掉前一个，加后一个就可以了。</p>
+<h3 id="1302-Balance-Tree"><a href="#1302-Balance-Tree" class="headerlink" title="1302 Balance Tree"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1302" target="_blank" rel="noopener"><span id="1302">1302 Balance Tree</span></a></h3><pre><code>1. 先建树
+2. dfs搜一遍，计算每个节点的左右子树的高度，判断是否平衡
+</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> l = <span class="number">0</span>,r = <span class="number">0</span>;			<span class="comment">// l: 左子树高度， r: 右子树高度</span></span><br><span class="line">   <span class="keyword">if</span>(node[u][<span class="number">0</span>]!=<span class="number">-1</span>&amp;&amp;flag)&#123;	<span class="comment">// 左孩子非空，且整树是平衡</span></span><br><span class="line">        l+=dfs(node[u][<span class="number">0</span>]);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span>(node[u][<span class="number">1</span>]!=<span class="number">-1</span>&amp;&amp;flag)&#123;	<span class="comment">// 右孩子非空，且整树是平衡</span></span><br><span class="line">           r+=dfs(node[u][<span class="number">1</span>]);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">abs</span>(r - l)&gt;<span class="number">1</span>) flag = <span class="number">0</span>;	<span class="comment">// u根树不平衡，flag设置为假</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">1</span>+(r&gt;=l ? r : l);		<span class="comment">// 返回u根树的高度</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>建树的平均时间复杂度为$O(nlogn)$，最坏复杂度为$O(n^2)$;dfs的时间复杂度为$O(n)$。</p>
+<p>也可以在建树的时候就维护每个节点为根的子树是否平衡，最后遍历一次所有节点，是否存在不平衡的节点。</p>
+<h3 id="1303-Sequence"><a href="#1303-Sequence" class="headerlink" title="1303 Sequence"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1303" target="_blank" rel="noopener"><span id="1303">1303 Sequence</span></a></h3><p>经典的动态规划题目</p>
+<p>dp[i][j]表示区间[i,j]取的最小代价。</p>
+<p>dp[i][j] = min{dp[i][j-1]<em>2+a[j], dp[i+1][j]</em>2+a[i]}</p>
+<h3 id="1304-ZUMA"><a href="#1304-ZUMA" class="headerlink" title="1304 ZUMA!"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1304" target="_blank" rel="noopener"><span id="1304">1304 ZUMA!</span></a></h3><p>模拟，递归。</p>
+<p>枚举所有的位置，加入这颗新的珠子，模拟消除的过程（递归比较好写点），统计消除的珠子数量。</p>
+<h3 id="1305-斐波那契区间"><a href="#1305-斐波那契区间" class="headerlink" title="1305 斐波那契区间"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1305" target="_blank" rel="noopener"><span id="1305">1305 斐波那契区间</span></a></h3><p>两点法。</p>
+<p>如果right位置满足Fibonacci要求，就一直向右延展；如果不满足，那么这个位置为新的left。这个过程中维护最长长度即可。</p>
+<h3 id="1347-消消乐"><a href="#1347-消消乐" class="headerlink" title="1347 消消乐"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1347" target="_blank" rel="noopener"><span id="1347">1347 消消乐</span></a></h3><p>模拟</p>
+<p>这个由于需要包含被交换的球，所以并不会发生连锁反应。</p>
+<p>直接模拟，查找交换位置同颜色最左，最右的边界，再根据交换的球是否是同色分情况处理一下既可以。 </p>
+<h3 id="1356-Maze"><a href="#1356-Maze" class="headerlink" title="1356 Maze"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1356" target="_blank" rel="noopener"><span id="1356">1356 Maze</span></a></h3><p>模拟</p>
+<p>这个题并不是BFS，因为走的规则是一定，直接模拟走法，但是要注意判重，用一个数组<code>vis[x][y][d]</code>，来存储格子(x,y)是否由d<br>方向进入过，如果出现重复那么就不可能走出来。</p>
+<h3 id="1370-Ball"><a href="#1370-Ball" class="headerlink" title="1370 Ball"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1370" target="_blank" rel="noopener"><span id="1370">1370 Ball</span></a></h3><p>floyd</p>
+<pre><code>1. 每个球是一个顶点，如果两个球称过，就连一条有向边。
+2. 然后跑floyd，求可达矩阵。
+3. 如果某个顶点的入度和出度相同，都是$\frac{n-1}{2}$，那么这个球即所求。
+</code></pre><h3 id="1365-Rotate"><a href="#1365-Rotate" class="headerlink" title="1365 Rotate"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1365" target="_blank" rel="noopener"><span id="1365">1365 Rotate</span></a></h3><p>模拟</p>
+<p>旋转外圈，不好写，换成旋转内圈。</p>
+<p>枚举，统计一下就可。</p>
+<h3 id="1366-Distance"><a href="#1366-Distance" class="headerlink" title="1366 Distance"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1366" target="_blank" rel="noopener"><span id="1366">1366 Distance</span></a></h3><p>两点。</p>
+<p>$O(n+m)$的暴力肯定会超时。</p>
+<p>对A和B分别排序，然后类似于归并排序，两个点i和j分别指向数组A和B，哪边数值小，就移动一个，维护答案即可。</p>
+<p>时间复杂度为$O(n+m)$</p>
+<h3 id="1367-Min-Base"><a href="#1367-Min-Base" class="headerlink" title="1367 Min Base"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1367" target="_blank" rel="noopener"><span id="1367">1367 Min Base</span></a></h3><p>枚举，进制转换。</p>
+<p>虽然n很大，但是随着基数b的增加，对应的位数是$log_{b}(n)的，所以，可以想象不用枚举多少次b，就能获得系数唯一。</p>
+<p>所以枚举b，进制转换，记录系数，看是否是唯一的。</p>
+<h3 id="1368-substring"><a href="#1368-substring" class="headerlink" title="1368 substring"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1368" target="_blank" rel="noopener"><span id="1368">1368 substring</span></a></h3><p>两点法。</p>
+<p>用一个26的数组last记录对应字母上一次出现的位置。</p>
+<p>先遍历字符串，计算是否达到了第一次所有字母都出现。</p>
+<p>假设此时的位置为i，这时记录下此时last数组的最小值，那么初始答案为 i - min(last[:])</p>
+<p>对于以后的每个字符，都执行上一步的操作，更新答案，直到字符串结束或者答案=26。</p>
+<h3 id="1369-Black-White-Chess"><a href="#1369-Black-White-Chess" class="headerlink" title="1369 Black White Chess"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1369" target="_blank" rel="noopener"><span id="1369">1369 Black White Chess</span></a></h3><p>BFS</p>
+<p>所有的局面为$2^{16}$个。</p>
+<p>由全黑和全白的节点作为起始节点，BFS搜索出所有可达局面的最少步数，不可达的为-1。</p>
+<p>对于每次查询，直接输出结果即可。 </p>
+<h3 id="1378-Blocks"><a href="#1378-Blocks" class="headerlink" title="1378 Blocks"></a><a href="http://202.197.224.59/exam/index.php/problem/read/id/1378" target="_blank" rel="noopener"><span id="1378">1378 Blocks</span></a></h3><p>递推</p>
+<p>dp[i][j][k] 为 i 列，共j个方块,末尾为k个方块的合法方案数</p>
+<p>那么$ dp[i][j][k] = \sum_{t=1}^{k-1}{dp[i-1][j-k][t]} $</p>
+<p>那么 $\sum_{k=1}^{n} {dp[m][n][k]}$ 为所求。</p>
+<p>时间复杂度$O(n^3m)$</p>
+<p>还可以优化到$O(n^2m)$，不过这个题本来也没想卡这个。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="Eric Xie WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Eric Xie Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Eric Xie
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://ericxie.github.io/2021/05/07/2021PP-solution/" title="2021年程序设计实践练习题解">http://ericxie.github.io/2021/05/07/2021PP-solution/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/题解/" rel="tag"># 题解</a>
+          
+            <a href="/tags/程序设计实践/" rel="tag"># 程序设计实践</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/12/03/2020-playcard/" rel="next" title="纸牌的证明">
+                <i class="fa fa-chevron-left"></i> 纸牌的证明
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          // 根据文章标题设置唯一评论id
+          id: 'PP_2021_solution',
+          owner: 'ericxie',
+          repo: 'ericxie.github.io',
+          oauth: {
+            client_id: 'f319585d3c1b9462feda',
+            client_secret: '4072ac50950bdf43faf69ad34d89a73b77c2fbd4',
+          },
+        })
+        gitment.render('comments')
+      </script>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Eric Xie">
+          <p class="site-author-name" itemprop="name">Eric Xie</p>
+           
+              <p class="site-description motion-element" itemprop="description">ericxie's blog</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ericxie" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1452537265/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/xie-yong-49" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1160-猜数字"><span class="nav-number">1.</span> <span class="nav-text">1160 猜数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1167-逆序数（大数据）"><span class="nav-number">2.</span> <span class="nav-text">1167 逆序数（大数据）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1174-栈"><span class="nav-number">3.</span> <span class="nav-text">1174 栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1179-Shortest-Path"><span class="nav-number">4.</span> <span class="nav-text">1179 Shortest Path</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1186-Tourist-2"><span class="nav-number">5.</span> <span class="nav-text">1186 Tourist 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1195-Large-Population"><span class="nav-number">6.</span> <span class="nav-text">1195 Large Population</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1244-Estrella’s-Chocolate"><span class="nav-number">7.</span> <span class="nav-text">1244 Estrella’s Chocolate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1245-Lisa’s-Puzzle"><span class="nav-number">8.</span> <span class="nav-text">1245 Lisa’s Puzzle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1250-Bonus"><span class="nav-number">9.</span> <span class="nav-text">1250 Bonus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1262-Fish"><span class="nav-number">10.</span> <span class="nav-text">1262 Fish</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1264-字符不重复子串"><span class="nav-number">11.</span> <span class="nav-text">1264 字符不重复子串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1269-Craftman"><span class="nav-number">12.</span> <span class="nav-text">1269 Craftman</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1288-Binary-Search-Tree"><span class="nav-number">13.</span> <span class="nav-text">1288 Binary Search Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1289-3的倍数"><span class="nav-number">14.</span> <span class="nav-text">1289 3的倍数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1291-Buying-Gifts"><span class="nav-number">15.</span> <span class="nav-text">1291 Buying Gifts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1302-Balance-Tree"><span class="nav-number">16.</span> <span class="nav-text">1302 Balance Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1303-Sequence"><span class="nav-number">17.</span> <span class="nav-text">1303 Sequence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1304-ZUMA"><span class="nav-number">18.</span> <span class="nav-text">1304 ZUMA!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1305-斐波那契区间"><span class="nav-number">19.</span> <span class="nav-text">1305 斐波那契区间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1347-消消乐"><span class="nav-number">20.</span> <span class="nav-text">1347 消消乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1356-Maze"><span class="nav-number">21.</span> <span class="nav-text">1356 Maze</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1370-Ball"><span class="nav-number">22.</span> <span class="nav-text">1370 Ball</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1365-Rotate"><span class="nav-number">23.</span> <span class="nav-text">1365 Rotate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1366-Distance"><span class="nav-number">24.</span> <span class="nav-text">1366 Distance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1367-Min-Base"><span class="nav-number">25.</span> <span class="nav-text">1367 Min Base</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1368-substring"><span class="nav-number">26.</span> <span class="nav-text">1368 substring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1369-Black-White-Chess"><span class="nav-number">27.</span> <span class="nav-text">1369 Black White Chess</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1378-Blocks"><span class="nav-number">28.</span> <span class="nav-text">1378 Blocks</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eric Xie</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

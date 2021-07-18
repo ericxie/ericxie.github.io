@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="python,">
+  <meta name="keywords" content="杂项,">
 
 
 
@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="一个给女儿听写的小工具">
-<meta name="keywords" content="python">
+<meta name="description" content="基于Windows环境，Sublime Text3中配置简单的C++开发环境，适合编程入门和算法竞赛。">
+<meta name="keywords" content="杂项">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python写的听写词语的程序">
-<meta property="og:url" content="http://ericxie.github.io/2017/06/15/python-speak/index.html">
+<meta property="og:title" content="Windows系统下 Sublime Text 3配置 G++开发环境">
+<meta property="og:url" content="http://ericxie.github.io/2021/07/18/sublime-gcc/index.html">
 <meta property="og:site_name" content="Eric Xie&#39;s Blog">
-<meta property="og:description" content="一个给女儿听写的小工具">
+<meta property="og:description" content="基于Windows环境，Sublime Text3中配置简单的C++开发环境，适合编程入门和算法竞赛。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-06-19T12:32:19.885Z">
+<meta property="og:updated_time" content="2021-07-18T08:54:57.675Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python写的听写词语的程序">
-<meta name="twitter:description" content="一个给女儿听写的小工具">
+<meta name="twitter:title" content="Windows系统下 Sublime Text 3配置 G++开发环境">
+<meta name="twitter:description" content="基于Windows环境，Sublime Text3中配置简单的C++开发环境，适合编程入门和算法竞赛。">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://ericxie.github.io/2017/06/15/python-speak/">
+  <link rel="canonical" href="http://ericxie.github.io/2021/07/18/sublime-gcc/">
 
 
 
 
 
-  <title>python写的听写词语的程序 | Eric Xie's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Windows系统下 Sublime Text 3配置 G++开发环境 | Eric Xie's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ericxie.github.io/2017/06/15/python-speak/">
+    <link itemprop="mainEntityOfPage" href="http://ericxie.github.io/2021/07/18/sublime-gcc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eric Xie">
@@ -295,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python写的听写词语的程序</h1>
+          <h1 class="post-title" itemprop="name headline">Windows系统下 Sublime Text 3配置 G++开发环境</h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-15T11:57:50+08:00">
-                2017-06-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-18T16:40:22+08:00">
+                2021-07-18
               </time>
             
 
@@ -359,7 +359,7 @@
 
           
               <div class="post-description">
-                  一个给女儿听写的小工具
+                  基于Windows环境，Sublime Text3中配置简单的C++开发环境，适合编程入门和算法竞赛。
               </div>
           
 
@@ -373,16 +373,21 @@
       
 
       
-        <p>每次给女儿听写都觉得很费时，为了节<code>(tou)</code>约<code>(gong)</code>时<code>(jian)</code>间<code>(liao)</code>，用<code>python</code>写了一个小工具。</p>
-<a id="more"></a>
-<ol>
-<li>先安装<code>python2.7</code></li>
-<li>使用<code>pip install pyttsx</code>安装<code>pyttsx</code>包</li>
-<li>在程序目录下编辑<code>word.txt</code>，编码<code>utf-8</code>，一行一个词语或者单词</li>
-<li>建立一个<code>speak.py</code>，拷贝下面的程序进去，存盘。</li>
-<li>命令行里，<code>python speak.py</code>运行程序<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> pyttsx</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">fp = codecs.open(<span class="string">'word.txt'</span>,<span class="string">'r'</span>,<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">engine = pyttsx.init()</span><br><span class="line">engine.setProperty(<span class="string">'rate'</span>, <span class="number">100</span>)</span><br><span class="line">lines = fp.readlines()</span><br><span class="line">fp.close()</span><br><span class="line">random.shuffle(lines)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(lines)):</span><br><span class="line">	print(<span class="string">'%d : %s'</span>%(i+<span class="number">1</span>,lines[i]))</span><br><span class="line">	engine.say(lines[i])</span><br><span class="line">	engine.runAndWait()</span><br><span class="line">	time.sleep(<span class="number">5</span>)</span><br><span class="line">	engine.say(lines[i])</span><br><span class="line">	engine.runAndWait()</span><br><span class="line">	time.sleep(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'Done!'</span>)</span><br></pre></td></tr></table></figure>
+        <ol>
+<li>先安装<code>Sublime Text3</code> 和 <code>minGW-w64</code> ，并在<code>PATH</code>环境变量中加入<code>minGW-w64</code>的<code>bin</code>目录，比如我机器上的目录是<code>&quot;D:\Program Files\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin&quot;</code>。</li>
+<li><p>在<code>Sublime Text 3</code>点击<code>Tools</code>,<code>Build System</code>,<code>New Build System</code>,</p>
+</li>
+<li><p>将这个文件拷贝进去，保存到用户的AppData的相应目录下，比如我的是<code>&quot;C:\Users\ericxie\AppData\Roaming\Sublime Text 3\Packages\User&quot;</code>，文件名为<code>g++.sublime-build</code>。</p>
 </li>
 </ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"working_dir"</span>: <span class="string">"$&#123;file_path&#125;"</span>,</span><br><span class="line">    <span class="attr">"cmd"</span>: [<span class="string">"g++"</span>,  <span class="string">"$&#123;file&#125;"</span>, <span class="string">"-o"</span>, <span class="string">"$&#123;file_base_name&#125;.exe"</span>, <span class="string">"-lm"</span>, <span class="string">"-Wall"</span>, <span class="string">"-O2"</span>,<span class="string">"-std=gnu++11"</span>,<span class="string">"-Wl,--stack,100000000"</span>],</span><br><span class="line">    <span class="attr">"file_regex"</span>: <span class="string">"^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$"</span>,    </span><br><span class="line">    <span class="attr">"selector"</span>: <span class="string">"source.c"</span>,</span><br><span class="line">    <span class="attr">"shell"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"variants"</span>:</span><br><span class="line">    [</span><br><span class="line">       &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"Run"</span>,</span><br><span class="line">            <span class="attr">"shell"</span>:<span class="literal">true</span>,            </span><br><span class="line">            <span class="attr">"cmd"</span>: [<span class="string">"start"</span>,<span class="string">"/D $&#123;file_path&#125;"</span>,<span class="string">"run1.bat"</span>,<span class="string">"$&#123;file_base_name&#125;.exe"</span>]</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"Output"</span>,       </span><br><span class="line">            <span class="attr">"cmd"</span>: [<span class="string">"start"</span>,<span class="string">"/D $&#123;file_path&#125;"</span>,<span class="string">"run.bat"</span>,<span class="string">"$&#123;file_base_name&#125;.exe"</span>,<span class="string">"std.in"</span>,<span class="string">"std.out"</span>]</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"Diff"</span>,       </span><br><span class="line">            <span class="attr">"cmd"</span>: [<span class="string">"start"</span>,<span class="string">"/D $&#123;file_path&#125;"</span>,<span class="string">"run.bat"</span>,<span class="string">"$&#123;file_base_name&#125;.exe"</span>,<span class="string">"std.in"</span>,<span class="string">"std.diff"</span>]</span><br><span class="line">       &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>在<code>minGW</code>的<code>bin</code>目录下建立两个文件,<code>run.bat</code>,<code>run1.bat</code>。内容如下：</li>
+</ol>
+<p>run.bat</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~0,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> HOUR=<span class="variable">%time:~1,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> HOUR=<span class="variable">%time:~0,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~3,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> MINUTE=<span class="variable">%time:~4,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> MINUTE=<span class="variable">%time:~3,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~6,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> SECOND=<span class="variable">%time:~7,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> SECOND=<span class="variable">%time:~6,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~9,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> MILLISECIOND=<span class="variable">%time:~10,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> MILLISECIOND=<span class="variable">%time:~9,2%</span>)</span><br><span class="line"><span class="built_in">set</span> /a <span class="built_in">START</span>=<span class="variable">%HOUR%</span>*<span class="number">3600</span>*<span class="number">100</span>+<span class="variable">%MINUTE%</span>*<span class="number">60</span>*<span class="number">100</span>+<span class="variable">%SECOND%</span>*<span class="number">100</span>+<span class="variable">%MILLISECIOND%</span></span><br><span class="line">%<span class="number">1</span> &lt;%<span class="number">2</span> &gt;%<span class="number">3</span></span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~0,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> HOUR=<span class="variable">%time:~1,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> HOUR=<span class="variable">%time:~0,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~3,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> MINUTE=<span class="variable">%time:~4,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> MINUTE=<span class="variable">%time:~3,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~6,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> SECOND=<span class="variable">%time:~7,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> SECOND=<span class="variable">%time:~6,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~9,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> MILLISECIOND=<span class="variable">%time:~10,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> MILLISECIOND=<span class="variable">%time:~9,2%</span>)</span><br><span class="line"><span class="built_in">set</span> /a END=<span class="variable">%HOUR%</span>*<span class="number">3600</span>*<span class="number">100</span>+<span class="variable">%MINUTE%</span>*<span class="number">60</span>*<span class="number">100</span>+<span class="variable">%SECOND%</span>*<span class="number">100</span>+<span class="variable">%MILLISECIOND%</span></span><br><span class="line"><span class="built_in">set</span> /a TOTAL=(<span class="variable">%END%</span>-<span class="variable">%START%</span>)*<span class="number">10</span></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> Run <span class="built_in">time</span> : <span class="variable">%TOTAL%</span> ms</span><br></pre></td></tr></table></figure>
+<p>run1.bat</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~0,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> HOUR=<span class="variable">%time:~1,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> HOUR=<span class="variable">%time:~0,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~3,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> MINUTE=<span class="variable">%time:~4,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> MINUTE=<span class="variable">%time:~3,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~6,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> SECOND=<span class="variable">%time:~7,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> SECOND=<span class="variable">%time:~6,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~9,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> MILLISECIOND=<span class="variable">%time:~10,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> MILLISECIOND=<span class="variable">%time:~9,2%</span>)</span><br><span class="line"><span class="built_in">set</span> /a <span class="built_in">START</span>=<span class="variable">%HOUR%</span>*<span class="number">3600</span>*<span class="number">100</span>+<span class="variable">%MINUTE%</span>*<span class="number">60</span>*<span class="number">100</span>+<span class="variable">%SECOND%</span>*<span class="number">100</span>+<span class="variable">%MILLISECIOND%</span></span><br><span class="line">%<span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~0,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> HOUR=<span class="variable">%time:~1,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> HOUR=<span class="variable">%time:~0,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~3,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> MINUTE=<span class="variable">%time:~4,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> MINUTE=<span class="variable">%time:~3,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~6,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> SECOND=<span class="variable">%time:~7,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> SECOND=<span class="variable">%time:~6,2%</span>)</span><br><span class="line"><span class="keyword">if</span> "<span class="variable">%time:~9,2%</span>" <span class="keyword">lss</span> "<span class="number">10</span>" (<span class="built_in">SET</span> MILLISECIOND=<span class="variable">%time:~10,1%</span>) <span class="keyword">else</span> (<span class="built_in">SET</span> MILLISECIOND=<span class="variable">%time:~9,2%</span>)</span><br><span class="line"><span class="built_in">set</span> /a END=<span class="variable">%HOUR%</span>*<span class="number">3600</span>*<span class="number">100</span>+<span class="variable">%MINUTE%</span>*<span class="number">60</span>*<span class="number">100</span>+<span class="variable">%SECOND%</span>*<span class="number">100</span>+<span class="variable">%MILLISECIOND%</span></span><br><span class="line"><span class="built_in">set</span> /a TOTAL=(<span class="variable">%END%</span>-<span class="variable">%START%</span>)*<span class="number">10</span></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> Run <span class="built_in">time</span> : <span class="variable">%TOTAL%</span> ms</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -432,7 +437,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://ericxie.github.io/2017/06/15/python-speak/" title="python写的听写词语的程序">http://ericxie.github.io/2017/06/15/python-speak/</a>
+      <a href="http://ericxie.github.io/2021/07/18/sublime-gcc/" title="Windows系统下 Sublime Text 3配置 G++开发环境">http://ericxie.github.io/2021/07/18/sublime-gcc/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -448,7 +453,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/杂项/" rel="tag"># 杂项</a>
           
         </div>
       
@@ -461,8 +466,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/15/practice-programming-201602-resite/" rel="next" title="2016年下学期《程序设计实践》重修考试">
-                <i class="fa fa-chevron-left"></i> 2016年下学期《程序设计实践》重修考试
+              <a href="/2021/05/07/2021PP-solution/" rel="next" title="2021年程序设计实践练习题解">
+                <i class="fa fa-chevron-left"></i> 2021年程序设计实践练习题解
               </a>
             
           </div>
@@ -470,10 +475,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/07/team-blog/" rel="prev" title="Team Blog List">
-                Team Blog List <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -527,7 +528,7 @@
       <script>
         var gitment = new Gitment({
           // 根据文章标题设置唯一评论id
-          id: 'python_speak',
+          id: 'sublime-g++',
           owner: 'ericxie',
           repo: 'ericxie.github.io',
           oauth: {
